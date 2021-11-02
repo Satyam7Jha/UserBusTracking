@@ -14,7 +14,7 @@ function News() {
 function VTU() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Settings!</Text>
+            <Text>Comming Soon!</Text>
         </View>
     );
 }
