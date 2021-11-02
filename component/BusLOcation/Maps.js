@@ -16,7 +16,7 @@ export default function App() {
     longitudeDelta: 0.0421
   })
   // -------------------------------------------------------------------------------------------------------------
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState({ latitude: 12.9037432, longitude: 77.5193716 });
   const [errorMsg, setErrorMsg] = useState(null);
 
 

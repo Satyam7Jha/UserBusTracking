@@ -5,12 +5,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import BusLoc from "./Screens/BusLoc";
 import Info from "./Screens/Info"
-
+import Home from "./Screens/Home"
+import Ecom from "./Screens/Ecom"
 function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home!</Text>
-    </View>
+    <Home />
   );
 }
 
@@ -20,7 +19,13 @@ function BusLocation() {
 
 function Information() {
   return (
-    <Info/>
+    <Info />
+  );
+}
+
+function ecom() {
+  return (
+    <Ecom />
   );
 }
 
@@ -33,6 +38,7 @@ function MyTabs() {
         name="Home"
         component={HomeScreen}
         options={{
+          headerShown: false,
           tabBarLabel: "Home",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
@@ -64,6 +70,16 @@ function MyTabs() {
           ),
         }}
       />
+      <Tab.Screen
+        name="WhatsApp: 8521954141"
+        component={ecom}
+        options={{
+          tabBarLabel: "E-com",
+
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="star-box" color={color} size={26} />
+          ),
+        }} />
     </Tab.Navigator>
   );
 }
