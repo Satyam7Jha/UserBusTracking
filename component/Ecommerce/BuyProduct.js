@@ -21,7 +21,7 @@ export default function BuyProduct() {
       .then((json) => setProduct(json))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-  }, []);
+  }, [product]);
 
   if (isLoading) {
     return (

@@ -27,7 +27,7 @@ export default function App() {
       .then((json) => setBanData(json))
       .catch((error) => console.error(error))
       .finally(() => setLoadingBangalore(false));
-  }, []);
+  }, [BanData]);
 
   useEffect(() => {
     fetch(
@@ -37,7 +37,7 @@ export default function App() {
       .then((json) => setIndiaData(json))
       .catch((error) => console.error(error))
       .finally(() => setLoadingIndia(false));
-  }, []);
+  }, [IndiaData]);
 
   if (isLoadingIndia || isLoadingBangalore) {
     return (
