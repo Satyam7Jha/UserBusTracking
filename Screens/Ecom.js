@@ -3,12 +3,12 @@ import { Text, View, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
+import BuyProduct from '../component/Ecommerce/BuyProduct';
+
 
 function Buy() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Comming Soon!</Text>
-        </View>
+        <BuyProduct />
     );
 }
 
@@ -24,7 +24,7 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function App() {
     return (
-        <SafeAreaView style={{ flex: 1}}>
+        <SafeAreaView style={{ flex: 1 }}>
             <NavigationContainer independent={true}>
                 <Tab.Navigator
                     screenOptions={{

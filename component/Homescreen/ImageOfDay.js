@@ -40,7 +40,7 @@ export default function App() {
         );
     }
 
-    console.log(image);
+    // console.log(image);
 
 
 

@@ -21,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     fetch(
-      "https://newsapi.org/v2/everything?q=Bangalore&from=2021-10-02&sortBy=publishedAt&apiKey=aef039e9738e406e9b99632a2446832f"
+      "https://newsapi.org/v2/everything?q=Bangaluru&from=2021-10102&sortBy=publishedAt&apiKey=aef039e9738e406e9b99632a2446832f"
     )
       .then((response) => response.json())
       .then((json) => setBanData(json))
@@ -31,7 +31,7 @@ export default function App() {
 
   useEffect(() => {
     fetch(
-      "https://newsapi.org/v2/everything?q=India&from=2021-10-02&sortBy=publishedAt&apiKey=aef039e9738e406e9b99632a2446832f"
+      "https://newsapi.org/v2/everything?q=India&from=2021-10102&sortBy=publishedAt&apiKey=aef039e9738e406e9b99632a2446832f"
     )
       .then((response) => response.json())
       .then((json) => setIndiaData(json))
