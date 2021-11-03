@@ -7,6 +7,8 @@ import BusLoc from "./Screens/BusLoc";
 import Info from "./Screens/Info"
 import Home from "./Screens/Home"
 import Ecom from "./Screens/Ecom"
+
+
 function HomeScreen() {
   return (
     <Home />
@@ -77,7 +79,7 @@ function MyTabs() {
           tabBarLabel: "E-com",
 
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="star-box" color={color} size={26} />
+            <MaterialCommunityIcons name="shopping" color={color} size={26} />
           ),
         }} />
     </Tab.Navigator>

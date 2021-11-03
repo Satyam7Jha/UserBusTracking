@@ -38,8 +38,8 @@ export default function App() {
       .catch((error) => console.error(error))
       .finally(() => setLoadingIndia(false));
   }, [IndiaData]);
-
-  if (isLoadingIndia || isLoadingBangalore) {
+  console.log(IndiaData);
+  if (isLoadingIndia || isLoadingBangalore || IndiaData["status"] == "error" || BanData["status"] == "error") {
     return (
       <View
         style={{
@@ -48,6 +48,7 @@ export default function App() {
           flex: 1,
         }}
       >
+        <Text>{IndiaData["message"]}</Text>
         <Text style={{ color: "blue", fontSize: 25, padding: 15 }}>
           Loading...
         </Text>
@@ -56,7 +57,7 @@ export default function App() {
     );
   }
 
-  console.log(IndiaData["articles"]);
+
 
   return (
     <View style={{ alignItems: "center", justifyContent: "center" }}>

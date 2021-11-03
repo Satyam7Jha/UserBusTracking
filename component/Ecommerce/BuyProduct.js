@@ -40,9 +40,9 @@ export default function BuyProduct() {
     );
   }
 
-  console.log(product);
+  // console.log(product);
   const productList = Object.keys(product);
-  console.log(productList);
+  // console.log(productList);
 
   return (
     <View style={{ flex: 1 }}>
