@@ -58,19 +58,19 @@ export default function App() {
           borderColor: "blue",
         }}
       >
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
           <Text style={{ fontSize: 20 }}>{weather["location"]["name"]}</Text>
           <Text style={{ fontSize: 15 }}>{weather["location"]["region"]}</Text>
         </View>
 
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
           <Text>Temp {weather["current"]["temp_c"]}</Text>
           <Text>windSpeed {weather["current"]["wind_kph"]}</Text>
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
           <Image
-            style={{ width: 50, height: 25,marginTop:0 }}
-            source={{ uri: "http://cdn.weatherapi.com/weather/64x64/day/116.png" }}
+            style={{ width: 50, height: 25, marginTop: 0 }}
+            source={{ uri: "http:" + weather["current"]["condition"]['icon'] }}
           />
           <Text>{weather["current"]["condition"]["text"]}</Text>
         </View>
