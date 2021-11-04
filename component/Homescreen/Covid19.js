@@ -40,12 +40,12 @@ export default function Covid19() {
         );
     }
 
-    console.log(covid);
+    // console.log(covid);
 
 
 
     return (
-        <View style={{  borderWidth: 2, borderRadius: 10, marginBottom: 200, padding: 5, alignItems: "center",marginTop:50 }}>
+        <View style={{ borderWidth: 2, borderRadius: 10, marginBottom: 200, padding: 5, alignItems: "center", marginTop: 50 }}>
             <View><Text style={{ fontSize: 25 }}>COVID-19</Text></View>
             <View style={{ marginLeft: -300 }}><Text>India</Text></View>
             <View style={{ flexDirection: "row", width: "100%", height: 70 }}>
@@ -80,7 +80,7 @@ export default function Covid19() {
                     <Text>Active</Text>
                     <Text>{covid["regionData"][15]["newInfected"]}</Text>
                     <Text>{covid["regionData"][15]["activeCases"]}</Text>
-                    
+
                 </View>
                 <View style={{ flex: 1, backgroundColor: "green", alignItems: "center", justifyContent: "center" }}>
                     <Text>"recovered"</Text>

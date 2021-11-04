@@ -40,7 +40,7 @@ export default function App() {
     );
   }
 
-  // console.log(weather);
+  console.log(weather);
 
   return (
     <View>
@@ -69,7 +69,8 @@ export default function App() {
         </View>
         <View style={{ flex: 1 }}>
           <Image
-            source={{ uri: "cdn.weatherapi.com/weather/64x64/night/116.png" }}
+            style={{ width: 50, height: 25,marginTop:0 }}
+            source={{ uri: "http://cdn.weatherapi.com/weather/64x64/day/116.png" }}
           />
           <Text>{weather["current"]["condition"]["text"]}</Text>
         </View>
