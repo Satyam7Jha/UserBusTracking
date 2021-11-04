@@ -58,19 +58,25 @@ export default function App() {
           borderColor: "blue",
         }}
       >
-        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
           <Text style={{ fontSize: 20 }}>{weather["location"]["name"]}</Text>
           <Text style={{ fontSize: 15 }}>{weather["location"]["region"]}</Text>
         </View>
 
-        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
           <Text>Temp {weather["current"]["temp_c"]}°C</Text>
           <Text>wind {weather["current"]["wind_kph"]}km/hr</Text>
         </View>
-        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
           <Image
             style={{ width: 50, height: 25, marginTop: 0 }}
-            source={{ uri: "http:" + weather["current"]["condition"]['icon'] }}
+            source={{ uri: "http:" + weather["current"]["condition"]["icon"] }}
           />
           <Text>{weather["current"]["condition"]["text"]}</Text>
         </View>
