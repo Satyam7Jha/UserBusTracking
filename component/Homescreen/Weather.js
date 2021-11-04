@@ -64,8 +64,8 @@ export default function App() {
         </View>
 
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-          <Text>Temp {weather["current"]["temp_c"]}</Text>
-          <Text>windSpeed {weather["current"]["wind_kph"]}</Text>
+          <Text>Temp {weather["current"]["temp_c"]}°C</Text>
+          <Text>wind {weather["current"]["wind_kph"]}km/hr</Text>
         </View>
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
           <Image
