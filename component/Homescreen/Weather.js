@@ -40,7 +40,7 @@ export default function App() {
     );
   }
 
-  // console.log(weather["current"]);
+  // console.log(weather);
 
   return (
     <View>

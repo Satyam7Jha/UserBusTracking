@@ -38,7 +38,13 @@ export default function App() {
       .catch((error) => console.error(error))
       .finally(() => setLoadingIndia(false));
   }, [IndiaData]);
-  console.log(IndiaData);
+
+
+  // console.log(IndiaData);
+
+
+
+
   if (isLoadingIndia || isLoadingBangalore || IndiaData["status"] == "error" || BanData["status"] == "error") {
     return (
       <View
