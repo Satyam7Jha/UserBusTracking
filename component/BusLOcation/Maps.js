@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as Location from 'expo-location';
 import { Platform, Text, View, StyleSheet, Image } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import BusesLoc from './BusesLoc';
 
 
 
@@ -47,6 +48,8 @@ export default function App() {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
+
+          <BusesLoc/>
 
         <Marker coordinate={{ latitude: location.latitude, longitude: location.longitude }}
           title="My current location" onPress={() => console.log("marker_curr")}
