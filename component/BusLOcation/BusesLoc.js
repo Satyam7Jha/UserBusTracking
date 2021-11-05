@@ -23,43 +23,47 @@ export default function BusesLoc() {
             .finally(() => setIsloding(false));
     }, [Buslocation]);
 
-    if (isLoding) {
+    if (isLoding || Buslocation == undefined ) {
         return (<View></View>);
     }
 
+    else {
 
-    console.log(Buslocation)
-    const BusList = Object.keys(Buslocation);
-    // console.log(BusList)
+        const BusList = Object.keys(Buslocation);
+        return (
 
-
-
-    return (
-
-        <View >
+            <View >
 
 
 
-            {
-                BusList.map((item) => {
-                    return (
-                        // <View>{console.log(item)}</View>
-                        <Marker key={item} coordinate={{ latitude: Buslocation[item]['latitude'], longitude: Buslocation[item]['longitude'] }}
-                            title={item} onPress={() => console.log("marker_curr")}
-                            icon={require('../BusLOcation/Bus.png')}
+                {
+                    BusList.map((item) => {
+
+                        if (isLoding || Buslocation[item]['latitude'] == undefined || Buslocation[item]['longitude'] == undefined) {
+                            return (<View key={item} ></View>);
+                        }
+
+                        else {
+                            return (
+                                // <View>{console.log(item)}</View>
+                                <Marker key={item} coordinate={{ latitude: Buslocation[item]['latitude'], longitude: Buslocation[item]['longitude'] }}
+                                    title={item} onPress={() => console.log("marker_curr")}
+                                    icon={require('../BusLOcation/Bus.png')}
 
 
-                        />
+                                />
 
-                    );
-                })
+                            );
+                        }
+                    })
 
-            }
+                }
 
 
 
-        </View>
-    );
+            </View>
+        );
 
+    }
 }
 
