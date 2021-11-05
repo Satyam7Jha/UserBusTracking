@@ -49,12 +49,24 @@ export default function App() {
           longitudeDelta: 0.0421,
         }}>
 
-          <BusesLoc/>
+        <BusesLoc />
 
         <Marker coordinate={{ latitude: location.latitude, longitude: location.longitude }}
           title="My current location" onPress={() => console.log("marker_curr")}
           description={"1 . This is a marker in React Natve"}
           icon={require('../BusLOcation/boy.png')}
+        />
+
+
+        <Marker
+          coordinate={{
+            latitude: 12.9016027278,
+            longitude: 77.518522625,
+          }}
+          title="RNSIT"
+          description={"college campus "}
+          icon={require("../BusLOcation/college.png")}
+
         />
 
       </MapView>
