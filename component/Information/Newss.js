@@ -168,8 +168,8 @@ export default function App() {
                 />
                 <View style={{ flex: 1, marginHorizontal: 10 }}>
                   <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item["title"]}</Text>
-                  <Text></Text>
-                  <Text>{item["date"].slice(9, item['date'].length)}</Text>
+                
+                  <Text style={{marginTop:3}}>{item["date"]}</Text>
                 </View>
               </View>
             </TouchableOpacity>
