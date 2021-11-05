@@ -11,33 +11,48 @@ import {
 } from "react-native";
 
 export default function App() {
+
+  const [isLoadingTop, setLoadingTop] = useState(true);
+  const [TopNews, setTopNews] = useState([]);
+
   const [isLoadingIndia, setLoadingIndia] = useState(true);
   const [BanData, setBanData] = useState([]);
 
   const [isLoadingBangalore, setLoadingBangalore] = useState(true);
   const [IndiaData, setIndiaData] = useState([]);
 
-  const BreakingNews = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 
   useEffect(() => {
     fetch(
-      "https://newsapi.org/v2/everything?q=Bangaluru&from=2021-10102&sortBy=publishedAt&apiKey=aef039e9738e406e9b99632a2446832f"
+      "https://userapp-12ba6-default-rtdb.asia-southeast1.firebasedatabase.app/NEWS/NDTV.json"
+    )
+      .then((response) => response.json())
+      .then((json) => setTopNews(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoadingTop(false));
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      "https://userapp-12ba6-default-rtdb.asia-southeast1.firebasedatabase.app/NEWS/Bangalore.json"
     )
       .then((response) => response.json())
       .then((json) => setBanData(json))
       .catch((error) => console.error(error))
       .finally(() => setLoadingBangalore(false));
-  }, [BanData]);
+  }, []);
+
 
   useEffect(() => {
     fetch(
-      "https://newsapi.org/v2/everything?q=India&from=2021-10102&sortBy=publishedAt&apiKey=aef039e9738e406e9b99632a2446832f"
+      "https://userapp-12ba6-default-rtdb.asia-southeast1.firebasedatabase.app/NEWS/mint.json"
     )
       .then((response) => response.json())
       .then((json) => setIndiaData(json))
       .catch((error) => console.error(error))
       .finally(() => setLoadingIndia(false));
-  }, [IndiaData]);
+  }, []);
 
 
   // console.log(IndiaData);
@@ -45,7 +60,7 @@ export default function App() {
 
 
 
-  if (isLoadingIndia || isLoadingBangalore || IndiaData["status"] == "error" || BanData["status"] == "error") {
+  if (isLoadingIndia || isLoadingBangalore || isLoadingTop) {
     return (
       <View
         style={{
@@ -78,59 +93,84 @@ export default function App() {
           }}
         >
           <View>
-            <Text style={{ fontSize: 35 }}>Breaking News!</Text>
+            <Text style={{ fontSize: 35 }}>Top News!</Text>
           </View>
           <ScrollView horizontal={true}>
-            {BreakingNews.map((item) => {
+            {TopNews.map((item) => {
               return (
-                <View
-                  style={{
-                    marginLeft: 10,
-                    borderWidth: 2,
-                    borderRadius: 20,
-                    height: 350,
-                    width: 250,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
+                <TouchableOpacity
+                  key={item['title']}
+                  onPress={() => Linking.openURL(item["url"])}
                 >
-                  <Text style={{ fontSize: 30 }}>{item}</Text>
-                </View>
+                  <View
+                    style={{
+                      width: Dimensions.get("window").width - 120,
+                      borderWidth: 2,
+                      padding: 10,
+                      minHeight: 270,
+                      maxHeight: 300,
+                      marginBottom: 10,
+                      borderRadius: 10,
+                      marginLeft: 10,
+                      alignItems: "center",
+                      justifyContent: "center"
+
+                    }}
+                  >
+                    <Image
+                      source={{
+                        uri: item["img"],
+                      }}
+                      style={{
+                        width: 200,
+
+                        height: 150,
+                        borderRadius: 10,
+                      }}
+                    />
+                    <View style={{ flex: 1, marginHorizontal: 10, marginTop: 4 }}>
+                      <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item["title"]}</Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
               );
             })}
           </ScrollView>
 
           <Text style={{ fontSize: 35 }}>India News</Text>
         </View>
-        {IndiaData["articles"].map((item) => {
+        {IndiaData.map((item) => {
           return (
             <TouchableOpacity
-              key={item["url"]}
+              key={item['title']}
               onPress={() => Linking.openURL(item["url"])}
             >
               <View
                 style={{
                   width: Dimensions.get("window").width - 20,
-                  borderWidth: 3,
+                  borderWidth: 2,
                   padding: 20,
                   marginBottom: 10,
                   borderRadius: 10,
                   marginLeft: 10,
+                  flexDirection: "row"
                 }}
               >
                 <Image
                   source={{
-                    uri: item["urlToImage"],
+                    uri: item["img"],
                   }}
                   style={{
-                    width: Dimensions.get("window").width / 1.2,
-                    height: Dimensions.get("window").width / 2,
+                    width: 100,
+                    height: 110,
                     borderRadius: 10,
                   }}
                 />
-                <Text>{item["title"]}</Text>
-                <Text></Text>
-                <Text>{item["publishedAt"].slice(0, 10)}</Text>
+                <View style={{ flex: 1, marginHorizontal: 10 }}>
+                  <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item["title"]}</Text>
+                  <Text></Text>
+                  <Text>{item["date"].slice(9, item['date'].length)}</Text>
+                </View>
               </View>
             </TouchableOpacity>
           );
@@ -152,35 +192,38 @@ export default function App() {
             ** Bangalore News **
           </Text>
         </View>
-        {BanData["articles"].map((item) => {
+        {BanData.map((item) => {
           return (
             <TouchableOpacity
-              key={item["url"]}
+              key={item['title']}
               onPress={() => Linking.openURL(item["url"])}
             >
               <View
                 style={{
                   width: Dimensions.get("window").width - 20,
-                  borderWidth: 3,
+                  borderWidth: 2,
                   padding: 20,
                   marginBottom: 10,
                   borderRadius: 10,
                   marginLeft: 10,
+                  flexDirection: "row"
                 }}
               >
                 <Image
                   source={{
-                    uri: item["urlToImage"],
+                    uri: item["img"],
                   }}
                   style={{
-                    width: Dimensions.get("window").width / 1.2,
-                    height: Dimensions.get("window").width / 2,
+                    width: 100,
+                    height: 110,
                     borderRadius: 10,
                   }}
                 />
-                <Text>{item["title"]}</Text>
-                <Text></Text>
-                <Text>{item["publishedAt"].slice(0, 10)}</Text>
+                <View style={{ flex: 1, marginHorizontal: 10 }}>
+                  <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item["title"]}</Text>
+                  {/* <Text></Text> */}
+                  <Text style={{ marginTop: 5 }}>{item["date"]}</Text>
+                </View>
               </View>
             </TouchableOpacity>
           );

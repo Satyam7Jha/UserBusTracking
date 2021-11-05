@@ -3,10 +3,7 @@ import {
     Text,
     View,
     ActivityIndicator,
-    ScrollView,
-    Dimensions,
-    Image,
-    Button,
+
 } from "react-native";
 
 export default function Covid19() {
@@ -45,52 +42,57 @@ export default function Covid19() {
 
 
     return (
-        <View style={{ borderWidth: 2, borderRadius: 10, marginBottom: 200, padding: 5, alignItems: "center", marginTop: 50 }}>
+        <View style={{ marginLeft: 10, marginRight: 10, borderWidth: 2, borderRadius: 10, marginBottom: 200, padding: 5, alignItems: "center", marginTop: 50 }}>
             <View><Text style={{ fontSize: 25 }}>COVID-19</Text></View>
-            <View style={{ marginLeft: -300 }}><Text>India</Text></View>
+
+
+
+            <View style={{ flex:1,width:"100%"}}><Text style={{ fontSize: 25 }}>{covid["regionData"][15]["region"]}</Text></View>
             <View style={{ flexDirection: "row", width: "100%", height: 70 }}>
-                <View style={{ flex: 1, backgroundColor: "red" }}>
-                    <Text>"totalCases"</Text>
-                    <Text>{covid["totalCases"]}</Text>
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "center", }}>
+                    <Text style={{ color: 'red' }}>TotalCases</Text>
+                    <Text style={{ color: 'red' }}>{covid["regionData"][15]["totalInfected"]}</Text>
                 </View>
-                <View style={{ flex: 1, backgroundColor: "blue", alignItems: "center", justifyContent: "center" }}>
-                    <Text>Active</Text>
-                    <Text>{covid["activeCasesNew"]}</Text>
-                    <Text>{covid["activeCases"]}</Text>
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                    <Text style={{ color: 'blue' }}>Active</Text>
+                    <Text style={{ color: 'blue', fontSize: 11 }}>({covid["regionData"][15]["newInfected"]})</Text>
+                    <Text style={{ color: 'blue' }}>{covid["regionData"][15]["activeCases"]}</Text>
+
                 </View>
-                <View style={{ flex: 1, backgroundColor: "green", alignItems: "center", justifyContent: "center" }}>
-                    <Text>"recovered"</Text>
-                    <Text>{covid["recoveredNew"]}</Text>
-                    <Text>{covid["recovered"]}</Text>
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                    <Text style={{ color: 'green' }}>Recovered</Text>
+                    <Text style={{ color: 'green', fontSize: 11 }}>({covid["regionData"][15]["newRecovered"]})</Text>
+                    <Text style={{ color: 'green' }}>{covid["regionData"][15]["recovered"]}</Text>
                 </View>
-                <View style={{ flex: 1, backgroundColor: "grey", alignItems: "center", justifyContent: "center" }}>
-                    <Text> "deaths"</Text>
-                    <Text>{covid["deathsNew"]}</Text>
-                    <Text>{covid["deaths"]}</Text>
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                    <Text style={{ color: 'grey' }}> Deaths</Text>
+                    <Text style={{ color: 'grey', fontSize: 11 }}>({covid["regionData"][15]["newDeceased"]})</Text>
+                    <Text style={{ color: 'grey' }}>{covid["regionData"][15]["deceased"]}</Text>
                 </View>
             </View>
 
-            <View style={{ marginLeft: -300 }}><Text>{covid["regionData"][15]["region"]}</Text></View>
-            <View style={{ flexDirection: "row", backgroundColor: "red", width: "100%", height: 70 }}>
-                <View style={{ flex: 1, backgroundColor: "red" }}>
-                    <Text>"totalCases"</Text>
-                    <Text>{covid["regionData"][15]["totalInfected"]}</Text>
-                </View>
-                <View style={{ flex: 1, backgroundColor: "blue", alignItems: "center", justifyContent: "center" }}>
-                    <Text>Active</Text>
-                    <Text>{covid["regionData"][15]["newInfected"]}</Text>
-                    <Text>{covid["regionData"][15]["activeCases"]}</Text>
+            <Text>-----------------------------------------------------------</Text>
 
+            <View style={{ flex:1,width:"100%" }}><Text style={{ fontSize: 25 }}>Across India</Text></View>
+            <View style={{ flexDirection: "row", width: "100%", height: 70 }}>
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                    <Text style={{ color: 'red' }}>TotalCases</Text>
+                    <Text style={{ color: 'red' }}>{covid["totalCases"]}</Text>
                 </View>
-                <View style={{ flex: 1, backgroundColor: "green", alignItems: "center", justifyContent: "center" }}>
-                    <Text>"recovered"</Text>
-                    <Text>{covid["regionData"][15]["newRecovered"]}</Text>
-                    <Text>{covid["regionData"][15]["recovered"]}</Text>
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                    <Text>Active</Text>
+                    <Text style={{ color: 'blue', fontSize: 11 }}>({covid["activeCasesNew"]})</Text>
+                    <Text style={{ color: 'blue' }}>{covid["activeCases"]}</Text>
                 </View>
-                <View style={{ flex: 1, backgroundColor: "grey", alignItems: "center", justifyContent: "center" }}>
-                    <Text> "deaths"</Text>
-                    <Text>{covid["regionData"][15]["newDeceased"]}</Text>
-                    <Text>{covid["regionData"][15]["deceased"]}</Text>
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                    <Text style={{ color: 'green' }}>Recovered"</Text>
+                    <Text style={{ color: 'green', fontSize: 11 }}>({covid["recoveredNew"]})</Text>
+                    <Text style={{ color: 'green' }}>{covid["recovered"]}</Text>
+                </View>
+                <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+                    <Text style={{ color: 'grey' }}> Deaths</Text>
+                    <Text style={{ color: 'grey', fontSize: 11 }}>({covid["deathsNew"]})</Text>
+                    <Text style={{ color: 'grey' }}>{covid["deaths"]}</Text>
                 </View>
             </View>
 

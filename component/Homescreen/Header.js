@@ -41,12 +41,12 @@ export default function App() {
     ]);
 
     return (
-        <View style={{ height: 200 ,marginTop:5}}>
+        <View style={{ height: 200, marginTop: 5 }}>
             <Swiper loop={true} style={{ height: 350 }} autoplay={true} autoplayTimeout={4}>
                 {userData.map((user) => (
                     <View key={user} style={{ alignItems: 'center' }}>
                         <Image
-                            style={{ width: "95%", height: 200,borderRadius:10 ,marginRight:5,marginLeft:5}}
+                            style={{ width: "95%", height: 200, borderRadius: 10, marginRight: 5, marginLeft: 5 }}
                             source={{ uri: user.img }}
                         />
                     </View>

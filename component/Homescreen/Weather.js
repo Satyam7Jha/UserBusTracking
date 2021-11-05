@@ -40,7 +40,7 @@ export default function App() {
     );
   }
 
-  console.log(weather);
+  // console.log(weather);
 
   return (
     <View>
@@ -78,7 +78,9 @@ export default function App() {
             style={{ width: 50, height: 25, marginTop: 0 }}
             source={{ uri: "http:" + weather["current"]["condition"]["icon"] }}
           />
-          <Text>{weather["current"]["condition"]["text"]}</Text>
+          <Text style={{ fontSize: weather["current"]["condition"]["text"].length > 14 ? 10 : 13 }}>
+            {weather["current"]["condition"]["text"]}
+          </Text>
         </View>
       </View>
     </View>
