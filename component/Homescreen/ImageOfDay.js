@@ -45,7 +45,7 @@ export default function App() {
 
 
     return (
-        <View style={{ height: 400, borderWidth: 2, borderRadius: 10, marginBottom: 200, padding: 5, alignItems: "center" }}>
+        <View style={{ height: 450, borderWidth: 2, borderRadius: 10, marginBottom: 200, padding: 5, alignItems: "center", marginHorizontal: 15 }}>
             <Text ></Text>
             <Text style={{ fontSize: 20, borderBottomWidth: 1 }}>NASA's Image of the Day</Text>
 
@@ -54,9 +54,10 @@ export default function App() {
                 style={{ width: "95%", height: 200, borderRadius: 10, marginRight: 5, marginLeft: 10 }}
                 source={{ uri: image["hdurl"] }}
             />
-            <ScrollView>
-                <View >
-                    <Text>{image["explanation"]}</Text>
+            <ScrollView nestedScrollEnabled={true}>
+                <View style={{ alignItems: "center", justifyContent: "center", padding: 15 }}>
+                    <Text>-------------------------------------------------------------------</Text>
+                    <Text style={{ fontSize: 13 }}>{image["explanation"]}</Text>
                 </View>
             </ScrollView>
 

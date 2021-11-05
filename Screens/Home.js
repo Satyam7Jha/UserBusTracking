@@ -9,7 +9,7 @@ import Medical from "../component/Homescreen/Medical"
 export default function App() {
   return (
     <View>
-      <ScrollView>
+      <ScrollView >
         <Weather />
         <Header />
         <Covid19 />
