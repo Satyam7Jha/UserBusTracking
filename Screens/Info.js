@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Newss from "../component/Information/Newss"
+import VTU from "../component/Information/VTU"
 
 function News() {
     return (
@@ -11,10 +12,10 @@ function News() {
     );
 }
 
-function VTU() {
+function VTU_info() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Comming Soon!</Text>
+           <VTU/>
         </View>
     );
 }
@@ -30,7 +31,7 @@ export default function App() {
                         tabBarStyle: { backgroundColor: 'white' },
                     }}>
                     <Tab.Screen name="News" component={News} />
-                    <Tab.Screen name="VTU" component={VTU} />
+                    <Tab.Screen name="VTU" component={VTU_info} />
                 </Tab.Navigator>
             </NavigationContainer>
         </SafeAreaView>

@@ -80,7 +80,7 @@ export default function Covid19() {
                     <Text style={{ color: 'red' }}>{covid["totalCases"]}</Text>
                 </View>
                 <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-                    <Text>Active</Text>
+                    <Text style = {{color:'blue'}}>Active</Text>
                     <Text style={{ color: 'blue', fontSize: 11 }}>({covid["activeCasesNew"]})</Text>
                     <Text style={{ color: 'blue' }}>{covid["activeCases"]}</Text>
                 </View>

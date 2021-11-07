@@ -75,7 +75,7 @@ export default function App() {
           style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
           <Image
-            style={{ width: 50, height: 25, marginTop: 0 }}
+            style={{ width: 50, height: 30, marginTop: 0 }}
             source={{ uri: "http:" + weather["current"]["condition"]["icon"] }}
           />
           <Text style={{ fontSize: weather["current"]["condition"]["text"].length > 14 ? 10 : 13 }}>
