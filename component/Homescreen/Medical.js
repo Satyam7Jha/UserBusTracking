@@ -46,7 +46,7 @@ export default function App() {
 
                 onPress={() =>
                     Linking.openURL(
-                        `whatsapp://send?phone=${918521954141}&text=${"HII: MAYTAS,\nWANT TO SHEDULE ,\nA CALL WITH DOCTOR.\nDESCRIBE YOUR PROBLEM IN LINE"
+                        `whatsapp://send?phone=${918521954141}&text=${"HII: ,\nWANT TO SHEDULE ,\nA CALL WITH DOCTOR.\nDESCRIBE YOUR PROBLEM IN LINE"
                         }`
                     )
                 }

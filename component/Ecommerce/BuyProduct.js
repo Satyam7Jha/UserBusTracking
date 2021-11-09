@@ -91,7 +91,7 @@ export default function BuyProduct() {
                 title="BUY NOW!!"
                 onPress={() =>
                   Linking.openURL(
-                    `whatsapp://send?phone=${918521954141}&text=${"Hii: MAYTAS,\nWant to Buy: " + item + "\n" + product[item]["ProductName"]
+                    `whatsapp://send?phone=${918521954141}&text=${"Hii: ,\nWant to Buy: " + item + "\n" + product[item]["ProductName"]
                     }`
                   )
                 }
