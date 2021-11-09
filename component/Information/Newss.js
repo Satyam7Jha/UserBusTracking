@@ -10,6 +10,9 @@ import {
   Linking,
 } from "react-native";
 
+import { WebView } from 'react-native-webview';
+import { Overlay } from 'react-native-elements';
+
 export default function App() {
 
   const [isLoadingTop, setLoadingTop] = useState(true);
@@ -20,6 +23,14 @@ export default function App() {
 
   const [isLoadingBangalore, setLoadingBangalore] = useState(true);
   const [IndiaData, setIndiaData] = useState([]);
+
+
+  const [newsUrl, setNewsUrl] = useState("");
+  const [showPopover, setShowPopover] = useState(false);
+
+  const toggleOverlay = () => {
+    setShowPopover(!showPopover);
+  };
 
 
 
@@ -100,7 +111,7 @@ export default function App() {
               return (
                 <TouchableOpacity
                   key={item['title']}
-                  onPress={() => Linking.openURL(item["url"])}
+                  onPress={() => { setNewsUrl(item['url']); setShowPopover(true) }}
                 >
                   <View
                     style={{
@@ -143,7 +154,7 @@ export default function App() {
           return (
             <TouchableOpacity
               key={item['title']}
-              onPress={() => Linking.openURL(item["url"])}
+              onPress={() => { setNewsUrl(item['url']); setShowPopover(true) }}
             >
               <View
                 style={{
@@ -168,8 +179,8 @@ export default function App() {
                 />
                 <View style={{ flex: 1, marginHorizontal: 10 }}>
                   <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item["title"]}</Text>
-                
-                  <Text style={{marginTop:3}}>{item["date"]}</Text>
+
+                  <Text style={{ marginTop: 3 }}>{item["date"]}</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -196,7 +207,7 @@ export default function App() {
           return (
             <TouchableOpacity
               key={item['title']}
-              onPress={() => Linking.openURL(item["url"])}
+              onPress={() => { setNewsUrl(item['url']); setShowPopover(true) }}
             >
               <View
                 style={{
@@ -229,6 +240,16 @@ export default function App() {
           );
         })}
       </ScrollView>
+      <Overlay
+        isVisible={showPopover} onBackdropPress={toggleOverlay}
+        overlayStyle={{ width: "100%", height: "100%" }}
+      >
+
+
+        <WebView source={{ uri: newsUrl }} />
+        {/* <Button title="Go Back" onPress={() => setShowPopover(!showPopover)} /> */}
+      </Overlay>
+
     </View>
   );
 }
