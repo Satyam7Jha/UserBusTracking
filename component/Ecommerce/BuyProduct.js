@@ -7,6 +7,7 @@ import {
   Dimensions,
   Image,
   Button,
+  Linking,
 } from "react-native";
 
 export default function BuyProduct() {
@@ -45,17 +46,19 @@ export default function BuyProduct() {
   // console.log(productList);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <ScrollView>
         {productList.map((item) => {
           return (
             <View
               key={item}
               style={{
+                width: Dimensions.get("window").width - 50,
+
                 flex: 1,
                 borderWidth: 2,
                 borderRadius: 5,
-                marginBottom: 5,
+                marginBottom: 10,
               }}
             >
               <View style={{ alignItems: "center", padding: 3 }}>
@@ -84,6 +87,15 @@ export default function BuyProduct() {
                   ₹{product[item]["price"]}
                 </Text>
               </View>
+              <Button
+                title="BUY NOW!!"
+                onPress={() =>
+                  Linking.openURL(
+                    `whatsapp://send?phone=${918521954141}&text=${"Hii: MAYTAS,\nWant to Buy: " + item + "\n" + product[item]["ProductName"]
+                    }`
+                  )
+                }
+              />
             </View>
           );
         })}

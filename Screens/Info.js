@@ -15,7 +15,7 @@ function News() {
 function VTU_info() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-           <VTU/>
+            <VTU />
         </View>
     );
 }
@@ -24,7 +24,7 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function App() {
     return (
-        <SafeAreaView style={{ flex: 1, paddingTop: 30 }}>
+        <SafeAreaView style={{ flex: 1 }}>
             <NavigationContainer independent={true}>
                 <Tab.Navigator
                     screenOptions={{

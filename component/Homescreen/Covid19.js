@@ -43,7 +43,7 @@ export default function Covid19() {
 
     return (
         <View style={{ marginLeft: 10, marginRight: 10, borderWidth: 2, borderRadius: 10, marginBottom: 200, padding: 5, alignItems: "center", marginTop: 50 }}>
-            <View><Text style={{ fontSize: 25 }}>COVID-19</Text></View>
+            <View style = {{alignItems:"center",justifyContent:"center"}}><Text style={{ fontSize: 25 }}>COVID-19</Text><Text>{covid["lastUpdatedAtApify"].slice(0,10)}</Text></View>
 
 
 

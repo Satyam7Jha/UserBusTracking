@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Text, View, SafeAreaView, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
@@ -76,6 +76,7 @@ function MyTabs() {
         name="WhatsApp: 8521954141"
         component={ecom}
         options={{
+          headerShown: false,
           tabBarLabel: "E-com",
 
           tabBarIcon: ({ color }) => (
@@ -88,8 +89,13 @@ function MyTabs() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1, paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 }}>
+
+        <NavigationContainer>
+          <MyTabs />
+        </NavigationContainer>
+      </View>
+    </SafeAreaView>
   );
 }

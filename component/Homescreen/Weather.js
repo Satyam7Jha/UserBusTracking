@@ -52,7 +52,6 @@ export default function App() {
           borderWidth: 3,
           borderRadius: 10,
           marginLeft: 10,
-          marginTop: 30,
           marginRight: 10,
           flexDirection: "row",
           borderColor: "blue",
@@ -74,13 +73,15 @@ export default function App() {
         <View
           style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
-          <Image
-            style={{ width: 50, height: 30, marginTop: 0 }}
-            source={{ uri: "http:" + weather["current"]["condition"]["icon"] }}
-          />
-          <Text style={{ fontSize: weather["current"]["condition"]["text"].length > 14 ? 10 : 13 }}>
-            {weather["current"]["condition"]["text"]}
-          </Text>
+          <View style= {{alignItems:'center',justifyContent:"center"}}>
+            <Image
+              style={{ width: 40, height: 35, marginTop: 0 }}
+              source={{ uri: "http:" + weather["current"]["condition"]["icon"] }}
+            />
+            <Text style={{ fontSize: 10 }}>
+              {weather["current"]["condition"]["text"]}
+            </Text>
+          </View>
         </View>
       </View>
     </View>
