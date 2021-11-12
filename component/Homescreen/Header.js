@@ -10,34 +10,29 @@ import Swiper from 'react-native-swiper';
 export default function App() {
 
     const [userData] = useState([
+       
+       
         {
-            img: 'https://randomuser.me/api/portraits/men/81.jpg',
-            name: 'Maurice Davis',
+            img:'https://wallpapercave.com/wp/wp9112898.jpg',
+            name:"satyam"
         },
         {
-            img: 'https://randomuser.me/api/portraits/women/20.jpg',
-            name: 'Bernice Alvarez',
-        },
-        {
-            img: 'https://randomuser.me/api/portraits/women/19.jpg',
+            img: 'https://wallpapercave.com/fwp/wp8142824.jpg',
             name: 'Jennie Barnett',
         },
         {
-            img: 'https://randomuser.me/api/portraits/men/55.jpg',
+            img: 'https://wallpapercave.com/fwp/wp10224226.png',
             name: 'Matthew Wagner',
         },
         {
-            img: 'https://randomuser.me/api/portraits/men/71.jpg',
+            img: 'https://wallpapercave.com/fwp/wp8872178.jpg',
             name: 'Christian Wilson',
         },
         {
-            img: 'https://randomuser.me/api/portraits/women/21.jpg',
+            img: 'https://wallpapercave.com/fwp/wp7334668.jpg',
             name: 'Sophia Fernandez',
         },
-        {
-            img: 'https://randomuser.me/api/portraits/women/42.jpg',
-            name: 'Sylvia Lynch',
-        },
+       
     ]);
 
     return (

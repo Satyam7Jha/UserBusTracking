@@ -6,6 +6,8 @@ import ImaageOfDay from "../component/Homescreen/ImageOfDay"
 import Covid19 from "../component/Homescreen/Covid19"
 import Medical from "../component/Homescreen/Medical"
 
+import NoticeBoard from '../component/Homescreen/NoticeBoard'
+
 export default function App() {
   return (
     <View>
@@ -13,8 +15,10 @@ export default function App() {
         <Weather />
         <Header />
         <Covid19 />
-        <Medical />
+        <NoticeBoard />
+
         <View style={{ width: "100%", height: 400, alignItems: "center", justifyContent: "center" }}><Text style={{ fontSize: 60 }}>comming soon..</Text></View>
+        <Medical />
         <ImaageOfDay />
       </ScrollView>
     </View>
