@@ -51,9 +51,9 @@ function MyTabs() {
         name="Bus Tracking"
         component={BusLocation}
         options={{
-          tabBarLabel: "BusLoc",
+          tabBarLabel: "Tracking",
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="map" color={color} size={26} />
+            <MaterialCommunityIcons name="bus" color={color} size={26} />
           ),
         }}
       />

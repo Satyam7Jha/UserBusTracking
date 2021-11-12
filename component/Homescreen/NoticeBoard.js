@@ -25,7 +25,7 @@ export default function App() {
             .finally(() => setLoading(false));
     }, []);
 
-    // console.log(Notice_data);
+
 
     if (isLoading) {
         return (
@@ -58,7 +58,7 @@ export default function App() {
 
 
         return (
-            <View style={{ height: 420, borderWidth: 2, borderRadius: 10, marginBottom: 200, padding: 5, alignItems: "center", width: Dimensions.get("window").width - 20, marginHorizontal: 10, marginTop: 50 }}>
+            <View style={{ height: 420, borderWidth: 2, borderRadius: 10, marginBottom: 50, padding: 5, alignItems: "center", width: Dimensions.get("window").width - 20, marginHorizontal: 10, marginTop: 50 }}>
                 <View style={{ borderBottomWidth: 2 }}>
                     <Text style={{ fontWeight: "bold", fontSize: 25 }}>NOTICE   BOARD</Text>
                 </View>
@@ -82,7 +82,7 @@ export default function App() {
 
 
                                                 <View style={{ flex: 1, paddingHorizontal: 20, justifyContent: "center" }}><Text style={{ fontSize: 15 }}>{Notice_data[item]['desc']}</Text></View>
-                                                <TouchableOpacity onPress={() => Linking.openURL(Notice_data[item]["url"])}><Text style={{ color: "blue" }}>{Notice_data[item]["url"]}</Text></TouchableOpacity>
+                                                <TouchableOpacity onPress={() => Linking.openURL(Notice_data[item]["url"])}><Text style={{ color: "blue" }}>{Notice_data[item]["urltitle"]}</Text></TouchableOpacity>
 
 
                                             </ScrollView>
@@ -99,7 +99,7 @@ export default function App() {
                         }
                     </View>
                 </ScrollView>
-                <View><Text style={{ color: "red" }}>{'next->'}</Text></View>
+                <View><Text style={{ color: "red",fontWeight:"bold",fontSize:17 }}>{'NEXT-->'}</Text></View>
 
 
             </View >

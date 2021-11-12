@@ -103,9 +103,8 @@ export default function App() {
             marginBottom: 5,
           }}
         >
-          <View>
-            <Text style={{ fontSize: 35 }}>Top News!</Text>
-          </View>
+          <View style={{ backgroundColor: "blue", width: "90%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5, marginTop: 5 }}><Text style={{ fontSize: 35, color: "white" }}>Top Stories</Text></View>
+
           <ScrollView horizontal={true}>
             {TopNews.map((item) => {
               return (
@@ -124,7 +123,9 @@ export default function App() {
                       borderRadius: 10,
                       marginLeft: 10,
                       alignItems: "center",
-                      justifyContent: "center"
+                      justifyContent: "center",
+
+
 
                     }}
                   >
@@ -148,7 +149,7 @@ export default function App() {
             })}
           </ScrollView>
 
-          <Text style={{ fontSize: 35 }}>India News</Text>
+          <View style={{ backgroundColor: "blue", width: "90%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5 }}><Text style={{ fontSize: 35, color: "white" }}>India's News</Text></View>
         </View>
         {IndiaData.map((item) => {
           return (
@@ -197,11 +198,8 @@ export default function App() {
             marginBottom: 5,
           }}
         >
-          <Text
-            style={{ fontSize: 35, borderTopWidth: 5, borderTopColor: "red" }}
-          >
-            ** Bangalore News **
-          </Text>
+          <View style={{ backgroundColor: "blue", width: "100%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5, marginTop: 5 }}><Text style={{ fontSize: 35, color: "white" }}>Bengaluru's News</Text></View>
+
         </View>
         {BanData.map((item) => {
           return (

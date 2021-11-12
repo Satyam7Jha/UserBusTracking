@@ -17,7 +17,7 @@ export default function App() {
         <Covid19 />
         <NoticeBoard />
 
-        <View style={{ width: "100%", height: 400, alignItems: "center", justifyContent: "center" }}><Text style={{ fontSize: 60 }}>comming soon..</Text></View>
+        <View style={{ width: "100%", height: 400, alignItems: "center", justifyContent: "center" }}><Text style={{ fontSize: 60 }}>coming soon..</Text></View>
         <Medical />
         <ImaageOfDay />
       </ScrollView>

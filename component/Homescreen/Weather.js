@@ -49,7 +49,7 @@ export default function App() {
           paddingHorizontal: 5,
           width: "95%",
           height: 60,
-          borderWidth: 3,
+          borderWidth: 2,
           borderRadius: 10,
           marginLeft: 10,
           marginRight: 10,
@@ -73,7 +73,7 @@ export default function App() {
         <View
           style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
-          <View style= {{alignItems:'center',justifyContent:"center"}}>
+          <View style={{ alignItems: 'center', justifyContent: "center" }}>
             <Image
               style={{ width: 40, height: 35, marginTop: 0 }}
               source={{ uri: "http:" + weather["current"]["condition"]["icon"] }}

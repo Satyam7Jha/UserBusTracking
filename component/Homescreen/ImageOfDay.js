@@ -45,7 +45,7 @@ export default function App() {
 
 
     return (
-        <View style={{ height: 450, borderWidth: 2, borderRadius: 10, marginBottom: 200, padding: 5, alignItems: "center",width: Dimensions.get("window").width - 20, marginHorizontal:10,marginTop:50}}>
+        <View style={{ height: 450, borderWidth: 2, borderRadius: 10, marginBottom: 20, padding: 5, alignItems: "center",width: Dimensions.get("window").width - 20, marginHorizontal:10,marginTop:50}}>
           
             <Text style={{ fontSize: 20, borderBottomWidth: 1,marginTop:10,color:"black" }}>NASA's Image of the Day</Text>
 

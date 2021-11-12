@@ -47,7 +47,7 @@ export default function App() {
 
             </View>
             <Button
-                title="SHEDULE NOW!!"
+                title="SCHEDULE NOW!!"
 
                 onPress={() =>
                     Linking.openURL(
