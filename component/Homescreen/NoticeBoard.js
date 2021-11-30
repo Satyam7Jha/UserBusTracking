@@ -10,7 +10,7 @@ import {
     TouchableOpacity,
     Linking
 } from "react-native";
-
+import  { MainAppColor,MainFontColor } from "../../assets/Color"
 export default function App() {
     const [isLoading, setLoading] = useState(true);
     const [Notice_data, setNoticeData] = useState([]);
@@ -60,9 +60,9 @@ export default function App() {
 
 
         return (
-            <View style={{ height: 420, borderWidth: 2, borderRadius: 10, marginBottom: 50, padding: 5, alignItems: "center", width: Dimensions.get("window").width - 20, marginHorizontal: 10, marginTop: 50 }}>
-                <View style={{ borderBottomWidth: 2 }}>
-                    <Text style={{ fontWeight: "bold", fontSize: 25 }}>NOTICE   BOARD</Text>
+            <View style={{ height: 420,marginBottom: 50, padding: 5, alignItems: "center", width: "100%", marginHorizontal: 10,borderBottomWidth:5,borderBottomColor:MainAppColor}}>
+                <View style={{ borderBottomWidth: 2,borderColor:"white" }}>
+                    <Text style={{ fontWeight: "bold", fontSize: 25 ,color:"white"}}>NOTICE   BOARD</Text>
                 </View>
 
                 <ScrollView horizontal={true}>
@@ -75,21 +75,21 @@ export default function App() {
                             noticeList.map((item, index) => {
                                 return (
 
-                                    <View key={item} style={{ maxHeight: 280, borderWidth: 2, borderRadius: 10, padding: 5, alignItems: "center", width: Dimensions.get("window").width - 50, marginHorizontal: 10, marginTop: 50 }}>
-                                        <Text style={{ fontSize: 20 }}>{Notice_data[item]['Head']}</Text>
-                                        <View style={{ marginTop: 10, width: "100%", marginBottom: 5 }}><Text style={{ fontWeight: "bold" }}>{Notice_data[item]['date']}</Text></View>
+                                    <View key={item} style={{ maxHeight: 280, borderWidth: 2, borderRadius: 10, padding: 5, alignItems: "center", width: Dimensions.get("window").width - 50, marginHorizontal: 10, marginTop: 50,borderColor:MainAppColor }}>
+                                        <Text style={{ fontSize: 20,color:MainFontColor }}>{Notice_data[item]['Head']}</Text>
+                                        <View style={{ marginTop: 10, width: "100%", marginBottom: 5 }}><Text style={{ fontWeight: "bold",color:"white" }}>{Notice_data[item]['date']}</Text></View>
 
                                         <View style={{ flex: 1, width: "100%" }}>
                                             <ScrollView nestedScrollEnabled={true} style={{ flex: 1 }}>
 
 
-                                                <View style={{ flex: 1, paddingHorizontal: 20, justifyContent: "center" }}><Text style={{ fontSize: 15 }}>{Notice_data[item]['desc']}</Text></View>
+                                                <View style={{ flex: 1, paddingHorizontal: 20, justifyContent: "center" }}><Text style={{ fontSize: 15 ,color:MainFontColor }}>{Notice_data[item]['desc']}</Text></View>
                                                 <TouchableOpacity onPress={() => Linking.openURL(Notice_data[item]["url"])}><Text style={{ color: "blue" }}>{Notice_data[item]["urltitle"]}</Text></TouchableOpacity>
 
 
                                             </ScrollView>
-                                            <View style={{ justifyContent: "space-between", flexDirection: "row", marginTop: 10, width: "100%", paddingBottom: 5, paddingHorizontal: 5 }}><Text style={{ fontWeight: "bold", fontSize: 18 }}>{Notice_data[item]['by_who']}</Text>
-                                                <Text>{index + 1}/{totalLen}</Text>
+                                            <View style={{ justifyContent: "space-between", flexDirection: "row", marginTop: 10, width: "100%", paddingBottom: 5, paddingHorizontal: 5 }}><Text style={{ fontWeight: "bold", fontSize: 18,color:"white" }}>{Notice_data[item]['by_who']}</Text>
+                                                <Text style = {{color:"white"}}>{index + 1}/{totalLen}</Text>
                                             </View>
 
                                         </View>
@@ -101,7 +101,7 @@ export default function App() {
                         }
                     </View>
                 </ScrollView>
-                <View><Text style={{ color: "red",fontWeight:"bold",fontSize:17 }}>{'NEXT-->'}</Text></View>
+                <View><Text style={{ color: "white",fontWeight:"bold",fontSize:17 }}>{'NEXT ->'}</Text></View>
 
 
             </View >

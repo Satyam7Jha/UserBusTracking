@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
     Linking,
 } from "react-native";
+import { DarkAppColor } from "../../assets/Color";
 
 export default function App() {
 
@@ -60,6 +61,8 @@ export default function App() {
                     alignItems: "center",
                     justifyContent: "center",
                     flex: 1,
+                    backgroundColor:DarkAppColor,
+                    
                 }}
             >
 

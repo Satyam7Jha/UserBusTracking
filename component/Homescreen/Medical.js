@@ -10,14 +10,16 @@ import {
     Button,
 } from "react-native";
 
+import  { MainFontColor,MainAppColor, DarkAppColor, blue } from "../../assets/Color"
+
 export default function App() {
 
     const URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ4FW_t2q0PtoUyqzVg6D3uawgI82pzlD-qg&usqp=CAU";
 
     return (
 
-        <View style={{ flex: 1, borderWidth: 2, borderRadius: 10, padding: 5, width: Dimensions.get("window").width - 20, marginHorizontal: 10 }}>
-            <View style={{ alignItems: "center", justifyContent: "center" }}><Text style={{ fontSize: 20, borderBottomWidth: 2 }}>Not Feeling well !!</Text></View>
+        <View style={{ flex: 1, padding: 5, width: Dimensions.get("window").width , borderTopWidth:5,borderBottomWidth:5,borderColor: MainAppColor,paddingBottom:20}}>
+            <View style={{ alignItems: "center", justifyContent: "center" }}><Text style={{ fontSize: 20, borderBottomWidth: 2,color:"white",borderColor:"white" }}>Not Feeling well !!</Text></View>
             <View style={{
                 padding: 5, alignItems: "center",
                 height: 170, flexDirection: "row",
@@ -27,8 +29,8 @@ export default function App() {
                     source={{ uri: URL }}
                 />
                 <View style={{ marginLeft: 20, flex: 1 }}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold" }}>Get a Doctor on Call</Text>
-                    <Text style={{ fontSize: 15, fontWeight: "bold" }}>Free consultations. </Text>
+                    <Text style={{ fontSize: 15, fontWeight: "bold",color:MainFontColor }}>Get a Doctor on Call</Text>
+                    <Text style={{ fontSize: 15, fontWeight: "bold",color:MainFontColor }}>Free consultations. </Text>
                     <View style={{ flexDirection: "row", alignItems: "center" }}>
 
 
@@ -48,6 +50,7 @@ export default function App() {
             </View>
             <Button
                 title="SCHEDULE NOW!!"
+                color= {MainAppColor}
 
                 onPress={() =>
                     Linking.openURL(

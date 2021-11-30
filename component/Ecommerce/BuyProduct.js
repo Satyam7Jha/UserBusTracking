@@ -9,7 +9,7 @@ import {
   Button,
   Linking,
 } from "react-native";
-import { DarkAppColor } from "../../assets/Color";
+import { DarkAppColor, MainAppColor, MainFontColor } from "../../assets/Color";
 
 export default function BuyProduct() {
   const [isLoading, setLoading] = useState(true);
@@ -32,6 +32,8 @@ export default function BuyProduct() {
           alignItems: "center",
           justifyContent: "center",
           flex: 1,
+          backgroundColor:DarkAppColor
+          
         }}
       >
         <Text style={{ color: "blue", fontSize: 25, padding: 15 }}>
@@ -54,16 +56,18 @@ export default function BuyProduct() {
             <View
               key={item}
               style={{
-                width: Dimensions.get("window").width - 50,
+                width: Dimensions.get("window").width ,
 
                 flex: 1,
-                borderWidth: 2,
-                borderRadius: 5,
+               
                 marginBottom: 10,
+                borderBottomWidth:5,
+                borderBottomColor:MainFontColor,
+                paddingBottom:10
               }}
             >
               <View style={{ alignItems: "center", padding: 3 }}>
-                <Text style={{ fontSize: 20 }}>
+                <Text style={{ fontSize: 20 ,color:"white",fontWeight:"bold"}}>
                   {product[item]["ProductName"]}
                 </Text>
               </View>
@@ -81,14 +85,18 @@ export default function BuyProduct() {
                 style={{
                   flexDirection: "row",
                   justifyContent: "space-between",
+                  marginTop:20,
+                  paddingHorizontal:20,
+                  paddingBottom:5
                 }}
               >
-                <Text>Condition: {product[item]["condition"]}</Text>
-                <Text style={{ marginRight: 30, fontSize: 20 }}>
+                <Text style = {{color:"white",fontWeight:"bold"}}>Condition: {product[item]["condition"]}</Text>
+                <Text style={{ marginRight: 30, fontSize: 20 ,color:"white"}}>
                   ₹{product[item]["price"]}
                 </Text>
               </View>
               <Button
+              color={MainAppColor}
                 title="BUY NOW!!"
                 onPress={() =>
                   Linking.openURL(

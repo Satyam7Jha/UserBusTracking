@@ -12,6 +12,8 @@ import { DarkAppColor, MainAppColor } from "../assets/Color";
 export default function App() {
   return (
     <View style={{ backgroundColor: DarkAppColor }}>
+        <View style = {{height:50,width:"100%",alignItems:"center",justifyContent:"center"}}><Text style = {{color:"white",fontWeight:"bold",fontSize:25}}>College Connect</Text></View>
+
       <ScrollView >
 
         <Header />
@@ -19,7 +21,7 @@ export default function App() {
         <Covid19 />
         <NoticeBoard />
 
-        <View style={{ width: "100%", height: 400, alignItems: "center", justifyContent: "center" }}><Text style={{ fontSize: 60 }}>coming soon..</Text></View>
+        <View style={{ width: "100%", height: 400, alignItems: "center", justifyContent: "center" }}><Text style={{ color:"white",fontSize: 60 }}>coming soon..</Text></View>
         <Medical />
         <ImaageOfDay />
       </ScrollView>

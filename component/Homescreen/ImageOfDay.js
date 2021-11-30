@@ -9,6 +9,7 @@ import {
     Button,
 } from "react-native";
 import { WebView } from 'react-native-webview';
+import { MainFontColor,MainAppColor } from "../../assets/Color"
 
 
 export default function App() {
@@ -42,27 +43,27 @@ export default function App() {
         );
     }
 
-    console.log(image);
+    // console.log(image);
 
     if (image["media_type"] == "video") {
 
         return (
-            <View style={{ height: 450, borderWidth: 2, borderRadius: 10, marginBottom: 20, padding: 5, alignItems: "center", width: Dimensions.get("window").width - 20, marginHorizontal: 10, marginTop: 50 }}>
+            <View style={{ height: 470,marginBottom: 20, padding: 5, alignItems: "center", width: Dimensions.get("window").width , marginHorizontal: 10, borderBottomWidth:5,borderColor:MainAppColor }}>
 
-                <Text style={{ fontSize: 20, borderBottomWidth: 1, marginTop: 10, color: "black" }}>NASA's Image of the Day</Text>
+                <Text style={{ fontSize: 20, borderBottomWidth: 1, marginTop: 10, color: "white",fontWeight:"bold",borderColor:MainFontColor }}>NASA's Image of the Day</Text>
 
-                <Text style={{ marginBottom: 5, borderBottomWidth: 1, fontSize: 12 }}>{image["title"]}</Text>
+                <Text style={{ marginBottom: 5, borderBottomWidth: 1, fontSize: 12,borderColor:"white",color:"white" }}>{image["title"]}</Text>
                 <Text ></Text>
-                <View style={{ width: "95%", height: 200, borderRadius: 10, marginRight: 5, marginLeft: 5 }}>
-                    <WebView source={{ uri: image['url'] }} />
+                <View style={{ width: "95%", height: 200, borderRadius: 10, marginRight: 18, marginLeft: 5, backgroundColor: 'red' }}>
+                    <WebView startInLoadingState={true} source={{ uri: image['url'] }} />
 
                 </View>
 
 
                 <ScrollView nestedScrollEnabled={true}>
                     <View style={{ alignItems: "center", justifyContent: "center", padding: 15 }}>
-                        <Text>-------------------------------------------------------------------</Text>
-                        <Text style={{ fontSize: 13 }}>{image["explanation"]}</Text>
+                        <Text style = {{color:"white"}}>-------------------------------------------------------------------</Text>
+                        <Text style={{ fontSize: 13 ,color:MainFontColor}}>{image["explanation"]}</Text>
                     </View>
                 </ScrollView>
 
@@ -77,20 +78,20 @@ export default function App() {
 
     else {
         return (
-            <View style={{ height: 450, borderWidth: 2, borderRadius: 10, marginBottom: 20, padding: 5, alignItems: "center", width: Dimensions.get("window").width - 20, marginHorizontal: 10, marginTop: 50 }}>
+            <View style={{ height: 470,marginBottom: 20, padding: 5, alignItems: "center", width: Dimensions.get("window").width , marginHorizontal: 10, borderBottomWidth:5,borderColor:MainAppColor }}>
 
-                <Text style={{ fontSize: 20, borderBottomWidth: 1, marginTop: 10, color: "black" }}>NASA's Image of the Day</Text>
+            <Text style={{ fontSize: 20, borderBottomWidth: 1, marginTop: 10, color: "white",fontWeight:"bold",borderColor:MainFontColor }}>NASA's Image of the Day</Text>
 
-                <Text style={{ marginBottom: 5, borderBottomWidth: 1, fontSize: 12 }}>{image["title"]}</Text>
-                <Text ></Text>
+            <Text style={{ marginBottom: 5, borderBottomWidth: 1, fontSize: 12,borderColor:"white",color:"white" }}>{image["title"]}</Text>
+            <Text ></Text>
                 <Image
-                    style={{ width: "95%", height: 200, borderRadius: 10, marginRight: 5, marginLeft: 5 }}
+                    style={{ width: "95%", height: 200, borderRadius: 10, marginRight: 18, marginLeft: 5 }}
                     source={{ uri: image["hdurl"] }}
                 />
                 <ScrollView nestedScrollEnabled={true}>
                     <View style={{ alignItems: "center", justifyContent: "center", padding: 15 }}>
-                        <Text>-------------------------------------------------------------------</Text>
-                        <Text style={{ fontSize: 13 }}>{image["explanation"]}</Text>
+                        <Text style = {{color:"white"}}>-------------------------------------------------------------------</Text>
+                        <Text style={{ fontSize: 13 ,color:MainFontColor}}>{image["explanation"]}</Text>
                     </View>
                 </ScrollView>
 

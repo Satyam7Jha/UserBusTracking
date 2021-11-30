@@ -79,6 +79,8 @@ export default function App() {
           alignItems: "center",
           justifyContent: "center",
           flex: 1,
+          backgroundColor:DarkAppColor,
+          flex:1
         }}
       >
         <Text>{IndiaData["message"]}</Text>

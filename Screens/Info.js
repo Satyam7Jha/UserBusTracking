@@ -30,8 +30,8 @@ export default function App() {
                 <Tab.Navigator
                     screenOptions={{
                         tabBarActiveTintColor: blue,
-                        tabBarInactiveTintColor: "#696969",
-                        tabBarLabelStyle: { fontSize: 10 },
+                        tabBarInactiveTintColor: "white",
+                        tabBarLabelStyle: { fontSize: 15,fontWeight:"bold"},
                         tabBarStyle: { backgroundColor: DarkAppColor },
                         tabBarIndicatorStyle:{backgroundColor:blue,height:5}
                     }}>

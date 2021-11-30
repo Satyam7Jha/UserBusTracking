@@ -6,6 +6,7 @@ import {
     Dimensions
 
 } from "react-native";
+import { MainAppColor, MainFontColor } from "../../assets/Color";
 
 export default function Covid19() {
     const [isLoadingBangalore, setLoadingBangalore] = useState(true);
@@ -43,12 +44,12 @@ export default function Covid19() {
 
 
     return (
-        <View style={{ width: Dimensions.get("window").width - 20, marginHorizontal:10, borderWidth: 2, borderRadius: 10, marginBottom: 20, padding: 5, alignItems: "center", marginTop: 50 }}>
-            <View style = {{alignItems:"center",justifyContent:"center"}}><Text style={{ fontSize: 25 }}>COVID-19</Text><Text>{covid["lastUpdatedAtApify"].slice(0,10)}</Text></View>
+        <View style={{ width: Dimensions.get("window").width , marginHorizontal:10, marginBottom: 20, padding: 5, alignItems: "center",borderColor:MainAppColor,borderBottomWidth:5 }}>
+            <View style = {{alignItems:"center",justifyContent:"center"}}><Text style={{ fontSize: 25,color:"white" }}>COVID-19</Text><Text style = {{color:MainFontColor}}>{covid["lastUpdatedAtApify"].slice(0,10)}</Text></View>
 
 
 
-            <View style={{ flex:1,width:"100%"}}><Text style={{ fontSize: 25 }}>{covid["regionData"][15]["region"]}</Text></View>
+            <View style={{ flex:1,width:"100%"}}><Text style={{ fontSize: 25,color:MainFontColor,fontWeight:"bold" }}>{covid["regionData"][15]["region"]}</Text></View>
             <View style={{ flexDirection: "row", width: "100%", height: 70 }}>
                 <View style={{ flex: 1, alignItems: "center", justifyContent: "center", }}>
                     <Text style={{ color: 'red' }}>TotalCases</Text>
@@ -72,9 +73,9 @@ export default function Covid19() {
                 </View>
             </View>
 
-            <Text>-----------------------------------------------------------</Text>
+            <Text style = {{color:"black"}}>-----------------------------------------------------------</Text>
 
-            <View style={{ flex:1,width:"100%" }}><Text style={{ fontSize: 25 }}>Across India</Text></View>
+            <View style={{ flex:1,width:"100%" }}><Text style={{ fontSize: 25,color:MainFontColor }}>Across India</Text></View>
             <View style={{ flexDirection: "row", width: "100%", height: 70 }}>
                 <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
                     <Text style={{ color: 'red' }}>TotalCases</Text>
