@@ -7,6 +7,7 @@ import BusLoc from "./Screens/BusLoc";
 import Info from "./Screens/Info"
 import Home from "./Screens/Home"
 import Ecom from "./Screens/Ecom"
+import { blue, DarkAppColor, MainAppColor } from "./assets/Color";
 
 
 function HomeScreen() {
@@ -35,7 +36,17 @@ const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+    screenOptions={{
+      tabBarActiveTintColor: blue,
+      tabBarInactiveTintColor: "#696969",
+      tabBarLabelStyle: { fontSize: 10 },
+      tabBarStyle: { backgroundColor: DarkAppColor },
+  }}
+
+    
+    
+    >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
@@ -50,11 +61,17 @@ function MyTabs() {
       <Tab.Screen
         name="Bus Tracking"
         component={BusLocation}
+        
         options={{
+
+          headerShown: false,
+
+          
           tabBarLabel: "Tracking",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="bus" color={color} size={26} />
           ),
+
         }}
       />
       <Tab.Screen
@@ -90,7 +107,7 @@ function MyTabs() {
 export default function App() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 }}>
+      <View style={{ flex: 1, paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,backgroundColor:DarkAppColor }}>
 
         <NavigationContainer>
           <MyTabs />

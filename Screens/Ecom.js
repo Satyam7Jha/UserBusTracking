@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import BuyProduct from '../component/Ecommerce/BuyProduct';
+import { blue, DarkAppColor } from '../assets/Color';
 
 
 function Buy() {
@@ -14,7 +15,7 @@ function Buy() {
 
 function Sell() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor:DarkAppColor }}>
             <Text>Comming Soon!</Text>
         </View>
     );
@@ -25,10 +26,14 @@ const Tab = createMaterialTopTabNavigator();
 export default function App() {
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <NavigationContainer independent={true}>
+            <NavigationContainer independent={true} >
                 <Tab.Navigator
                     screenOptions={{
-                        tabBarStyle: { backgroundColor: 'white' },
+                        tabBarActiveTintColor: blue,
+                        tabBarInactiveTintColor: "#696969",
+                        tabBarLabelStyle: { fontSize: 10 },
+                        tabBarStyle: { backgroundColor: DarkAppColor },
+                        tabBarIndicatorStyle:{backgroundColor:blue,height:5}
                     }}>
                     <Tab.Screen name="Buy" component={Buy} />
                     <Tab.Screen name="Sell" component={Sell} />

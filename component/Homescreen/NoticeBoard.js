@@ -23,7 +23,9 @@ export default function App() {
             .then((json) => setNoticeData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    }, []);
+    }, [Notice_data]);
+
+    // console.log(Notice_data)
 
 
 

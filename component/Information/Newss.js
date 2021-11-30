@@ -12,6 +12,7 @@ import {
 
 import { WebView } from 'react-native-webview';
 import { Overlay } from 'react-native-elements';
+import { blue, DarkAppColor, MainAppColor } from "../../assets/Color";
 
 export default function App() {
 
@@ -81,7 +82,7 @@ export default function App() {
         }}
       >
         <Text>{IndiaData["message"]}</Text>
-        <Text style={{ color: "blue", fontSize: 25, padding: 15 }}>
+        <Text style={{ color: blue, fontSize: 25, padding: 15 }}>
           Loading...
         </Text>
         <ActivityIndicator size="large" color="blue" />
@@ -92,7 +93,7 @@ export default function App() {
 
 
   return (
-    <View style={{ alignItems: "center", justifyContent: "center" }}>
+    <View style={{ alignItems: "center", justifyContent: "center" ,backgroundColor:DarkAppColor}}>
       <ScrollView>
         <View
           style={{
@@ -103,7 +104,7 @@ export default function App() {
             marginBottom: 5,
           }}
         >
-          <View style={{ backgroundColor: "blue", width: "90%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5, marginTop: 5 }}><Text style={{ fontSize: 35, color: "white" }}>Top Stories</Text></View>
+          <View style={{ backgroundColor: blue, width: "90%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5, marginTop: 5 }}><Text style={{ fontSize: 35, color: "white" }}>Top Stories</Text></View>
 
           <ScrollView horizontal={true}>
             {TopNews.map((item) => {
@@ -149,7 +150,7 @@ export default function App() {
             })}
           </ScrollView>
 
-          <View style={{ backgroundColor: "blue", width: "90%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5 }}><Text style={{ fontSize: 35, color: "white" }}>India's News</Text></View>
+          <View style={{ backgroundColor: blue, width: "90%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5 }}><Text style={{ fontSize: 35, color: "white" }}>India's News</Text></View>
         </View>
         {IndiaData.map((item) => {
           return (
@@ -198,7 +199,7 @@ export default function App() {
             marginBottom: 5,
           }}
         >
-          <View style={{ backgroundColor: "blue", width: "100%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5, marginTop: 5 }}><Text style={{ fontSize: 35, color: "white" }}>Bengaluru's News</Text></View>
+          <View style={{ backgroundColor: blue, width: "100%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5, marginTop: 5 }}><Text style={{ fontSize: 35, color: "white" }}>Bengaluru's News</Text></View>
 
         </View>
         {BanData.map((item) => {

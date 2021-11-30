@@ -7,10 +7,11 @@ import Covid19 from "../component/Homescreen/Covid19"
 import Medical from "../component/Homescreen/Medical"
 
 import NoticeBoard from '../component/Homescreen/NoticeBoard'
+import { DarkAppColor, MainAppColor } from "../assets/Color";
 
 export default function App() {
   return (
-    <View>
+    <View style = {{backgroundColor:DarkAppColor}}>
       <ScrollView >
         <Weather />
         <Header />

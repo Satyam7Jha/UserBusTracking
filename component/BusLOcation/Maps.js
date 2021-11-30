@@ -33,6 +33,7 @@ export default function App() {
       setLocation(location.coords);
     })();
   }, [location]);
+  // console.log(location)
 
   // console.log(location);
   // -------------------------------------------------------------------------------------------------------------
@@ -79,6 +80,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
+  marginTop:50
   },
   map: {
     ...StyleSheet.absoluteFillObject,

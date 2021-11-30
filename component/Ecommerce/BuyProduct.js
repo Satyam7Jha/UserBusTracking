@@ -9,6 +9,7 @@ import {
   Button,
   Linking,
 } from "react-native";
+import { DarkAppColor } from "../../assets/Color";
 
 export default function BuyProduct() {
   const [isLoading, setLoading] = useState(true);
@@ -46,7 +47,7 @@ export default function BuyProduct() {
   // console.log(productList);
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: DarkAppColor }}>
       <ScrollView>
         {productList.map((item) => {
           return (
