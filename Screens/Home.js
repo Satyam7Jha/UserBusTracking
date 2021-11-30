@@ -11,10 +11,11 @@ import { DarkAppColor, MainAppColor } from "../assets/Color";
 
 export default function App() {
   return (
-    <View style = {{backgroundColor:DarkAppColor}}>
+    <View style={{ backgroundColor: DarkAppColor }}>
       <ScrollView >
-        <Weather />
+
         <Header />
+        <Weather />
         <Covid19 />
         <NoticeBoard />
 
