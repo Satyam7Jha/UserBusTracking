@@ -14,7 +14,7 @@ import  { MainFontColor,MainAppColor, DarkAppColor, blue } from "../../assets/Co
 
 export default function App() {
 
-    const URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ4FW_t2q0PtoUyqzVg6D3uawgI82pzlD-qg&usqp=CAU";
+    const URL = "https://i.pinimg.com/originals/be/f5/d0/bef5d0e27b11ccc40b0a1793047bc769.png";
 
     return (
 

@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Linking,
 } from "react-native";
+import Modal from "react-native-paper"
 
 import { WebView } from 'react-native-webview';
 import { Overlay } from 'react-native-elements';
@@ -243,8 +244,11 @@ export default function App() {
       </ScrollView>
       <Overlay
         isVisible={showPopover} onBackdropPress={toggleOverlay}
-        overlayStyle={{ width: "100%", height: "100%" }}
+        overlayStyle={{ width: "105%", height: "103%"}}
+        animationType = "fade"      
       >
+
+         
 
 
         <WebView source={{ uri: newsUrl }} />

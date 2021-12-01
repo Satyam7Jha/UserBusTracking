@@ -15,9 +15,9 @@ function News() {
 
 function VTU_info() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor:MainAppColor }}>
-            <VTU />
-        </View>
+
+        <VTU />
+
     );
 }
 
@@ -29,11 +29,13 @@ export default function App() {
             <NavigationContainer independent={true}>
                 <Tab.Navigator
                     screenOptions={{
+                        swipeEnabled :false,
+                        
                         tabBarActiveTintColor: blue,
                         tabBarInactiveTintColor: "white",
-                        tabBarLabelStyle: { fontSize: 15,fontWeight:"bold"},
+                        tabBarLabelStyle: { fontSize: 15, fontWeight: "bold" },
                         tabBarStyle: { backgroundColor: DarkAppColor },
-                        tabBarIndicatorStyle:{backgroundColor:blue,height:5}
+                        tabBarIndicatorStyle: { backgroundColor: blue, height: 5 }
                     }}>
                     <Tab.Screen name="News" component={News} />
                     <Tab.Screen name="VTU" component={VTU_info} />
