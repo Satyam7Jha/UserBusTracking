@@ -18,7 +18,7 @@ export default function App() {
 
     return (
 
-        <View style={{ flex: 1, padding: 5, width: Dimensions.get("window").width , borderTopWidth:5,borderBottomWidth:5,borderColor: MainAppColor,paddingBottom:20}}>
+        <View style={{ flex: 1, padding: 5, width: Dimensions.get("window").width , borderBottomWidth:5,borderColor: MainAppColor,paddingBottom:20}}>
             <View style={{ alignItems: "center", justifyContent: "center" }}><Text style={{ fontSize: 20, borderBottomWidth: 2,color:"white",borderColor:"white" }}>Not Feeling well !!</Text></View>
             <View style={{
                 padding: 5, alignItems: "center",

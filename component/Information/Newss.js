@@ -80,8 +80,8 @@ export default function App() {
           alignItems: "center",
           justifyContent: "center",
           flex: 1,
-          backgroundColor:DarkAppColor,
-          flex:1
+          backgroundColor: DarkAppColor,
+          flex: 1
         }}
       >
         <Text>{IndiaData["message"]}</Text>
@@ -96,7 +96,7 @@ export default function App() {
 
 
   return (
-    <View style={{ alignItems: "center", justifyContent: "center" ,backgroundColor:DarkAppColor}}>
+    <View style={{ alignItems: "center", justifyContent: "center", backgroundColor: DarkAppColor }}>
       <ScrollView>
         <View
           style={{
@@ -244,15 +244,11 @@ export default function App() {
       </ScrollView>
       <Overlay
         isVisible={showPopover} onBackdropPress={toggleOverlay}
-        overlayStyle={{ width: "105%", height: "103%"}}
-        animationType = "fade"      
+        overlayStyle={{ width: "105%", height: "103%" }}
+        animationType="fade"
       >
-
-         
-
-
         <WebView source={{ uri: newsUrl }} />
-        {/* <Button title="Go Back" onPress={() => setShowPopover(!showPopover)} /> */}
+
       </Overlay>
 
     </View>

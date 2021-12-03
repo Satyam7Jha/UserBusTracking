@@ -1,13 +1,11 @@
 import * as React from "react";
-import { Text, View, SafeAreaView, StatusBar } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { View, SafeAreaView, StatusBar, Platform, StyleSheet } from "react-native";
 import BusLoc from "./Screens/BusLoc";
 import Info from "./Screens/Info"
 import Home from "./Screens/Home"
 import Ecom from "./Screens/Ecom"
 import { blue, DarkAppColor, MainAppColor } from "./assets/Color";
+import { BottomNavigation, Text } from 'react-native-paper';
 
 
 function HomeScreen() {
@@ -32,87 +30,82 @@ function ecom() {
   );
 }
 
-const Tab = createBottomTabNavigator();
 
-function MyTabs() {
-  return (
-    <Tab.Navigator
-    screenOptions={{
-      tabBarActiveTintColor: blue,
-      tabBarInactiveTintColor: "#696969",
-      tabBarLabelStyle: { fontSize: 10 },
-      tabBarStyle: { backgroundColor: DarkAppColor },
-  }}
-
-    
-    
-    >
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          headerShown: false,
-          tabBarLabel: "Home",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Bus Tracking"
-        component={BusLocation}
-        
-        options={{
-
-          headerShown: false,
-
-          
-          tabBarLabel: "Tracking",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="bus" color={color} size={26} />
-          ),
-
-        }}
-      />
-      <Tab.Screen
-        name="Information"
-        component={Information}
-        options={{
-          headerShown: false,
-          tabBarLabel: "Info",
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="information"
-              color={color}
-              size={26}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="WhatsApp: 8521954141"
-        component={ecom}
-        options={{
-          headerShown: false,
-          tabBarLabel: "E-com",
-
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="shopping" color={color} size={26} />
-          ),
-        }} />
-    </Tab.Navigator>
-  );
-}
-
-export default function App() {
-  return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,backgroundColor:DarkAppColor }}>
-
-        <NavigationContainer>
-          <MyTabs />
-        </NavigationContainer>
-      </View>
+const MyStatusBar = ({ backgroundColor, ...props }) => (
+  <View style={[styles.statusBar, { backgroundColor }]}>
+    <SafeAreaView>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
     </SafeAreaView>
+  </View>
+);
+
+
+
+const App = () => {
+
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: "home", title: "Home", icon: "home" },
+    { key: "bus", title: "Tracking", icon: "bus" },
+    { key: "info", title: "info", icon: "information" },
+    { key: "ecommers", title: "E-com", icon: "shopping" },
+  ]);
+
+  const renderScene = BottomNavigation.SceneMap({
+    home: HomeScreen,
+    bus: BusLocation,
+    info: Information,
+    ecommers: ecom
+  });
+
+
+
+  return (
+
+
+    <View style={{ flex: 1 }}>
+
+      <View style={{ flex: 1 }}>
+        <MyStatusBar backgroundColor={DarkAppColor} barStyle="light-content" />
+
+        <BottomNavigation
+          navigationState={{ index, routes }}
+          onIndexChange={setIndex}
+          renderScene={renderScene}
+          activeColor="#02abde"
+          barStyle={{ backgroundColor: DarkAppColor }}
+        />
+      </View>
+
+
+    </View >
+
   );
-}
+
+};
+
+
+
+const STATUSBAR_HEIGHT = StatusBar.currentHeight;
+const APPBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  statusBar: {
+    height: STATUSBAR_HEIGHT,
+  },
+  appBar: {
+    backgroundColor: DarkAppColor,
+    height: APPBAR_HEIGHT,
+  },
+  content: {
+    flex: 1,
+    backgroundColor: DarkAppColor,
+  },
+});
+
+
+
+export default App;

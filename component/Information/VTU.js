@@ -8,7 +8,7 @@ export default function App() {
   return (
     <WebView
       source={{ uri: "https://vtu.ac.in/en/" }}
-      onLoadEnd={() => console.log("hiii")}
+      // onLoadEnd={() => console.log("hiii")}
       
     />
   );
