@@ -19,7 +19,7 @@ export default function InstaImage(props) {
 
   
     const imageList = Object.keys(props.imageData);
-    console.log(imageList);
+    // console.log(imageList);
 
     return (
         <View style={{
@@ -79,7 +79,7 @@ export default function InstaImage(props) {
                     );
                 })}
             </ScrollView>
-            {/* <View style = {{width:"100%"}}>
+            <View style = {{width:"100%"}}>
                 <Button
                     color={MainAppColor}
 
@@ -89,7 +89,7 @@ export default function InstaImage(props) {
                             `whatsapp://send?phone=${918521954141}&text=${"Send us pic ,image title, pic by  "}`
                         )
                     }
-                /></View> */}
+                /></View>
         </View>
     );
 }

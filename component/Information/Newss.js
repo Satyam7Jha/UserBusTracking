@@ -9,14 +9,18 @@ import {
   TouchableOpacity,
   Linking,
 } from "react-native";
-import Modal from "react-native-paper"
+import Modal from "react-native-paper";
 
-import { WebView } from 'react-native-webview';
-import { Overlay } from 'react-native-elements';
-import { blue, DarkAppColor, MainAppColor } from "../../assets/Color";
+import { WebView } from "react-native-webview";
+import { Overlay } from "react-native-elements";
+import {
+  blue,
+  DarkAppColor,
+  MainAppColor,
+  MainFontColor,
+} from "../../assets/Color";
 
 export default function App() {
-
   const [isLoadingTop, setLoadingTop] = useState(true);
   const [TopNews, setTopNews] = useState([]);
 
@@ -26,15 +30,12 @@ export default function App() {
   const [isLoadingBangalore, setLoadingBangalore] = useState(true);
   const [IndiaData, setIndiaData] = useState([]);
 
-
   const [newsUrl, setNewsUrl] = useState("");
   const [showPopover, setShowPopover] = useState(false);
 
   const toggleOverlay = () => {
     setShowPopover(!showPopover);
   };
-
-
 
   useEffect(() => {
     fetch(
@@ -56,7 +57,6 @@ export default function App() {
       .finally(() => setLoadingBangalore(false));
   }, []);
 
-
   useEffect(() => {
     fetch(
       "https://userapp-12ba6-default-rtdb.asia-southeast1.firebasedatabase.app/NEWS/mint.json"
@@ -67,11 +67,7 @@ export default function App() {
       .finally(() => setLoadingIndia(false));
   }, []);
 
-
   // console.log(IndiaData);
-
-
-
 
   if (isLoadingIndia || isLoadingBangalore || isLoadingTop) {
     return (
@@ -81,7 +77,7 @@ export default function App() {
           justifyContent: "center",
           flex: 1,
           backgroundColor: DarkAppColor,
-          flex: 1
+          flex: 1,
         }}
       >
         <Text>{IndiaData["message"]}</Text>
@@ -93,10 +89,14 @@ export default function App() {
     );
   }
 
-
-
   return (
-    <View style={{ alignItems: "center", justifyContent: "center", backgroundColor: DarkAppColor }}>
+    <View
+      style={{
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: DarkAppColor,
+      }}
+    >
       <ScrollView>
         <View
           style={{
@@ -107,30 +107,42 @@ export default function App() {
             marginBottom: 5,
           }}
         >
-          <View style={{ backgroundColor: blue, width: "90%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5, marginTop: 5 }}><Text style={{ fontSize: 35, color: "white" }}>Top Stories</Text></View>
+          <View
+            style={{
+              backgroundColor: MainAppColor,
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 10,
+              borderWidth: 2,
+              marginBottom: 5,
+              marginTop: 5,
+            }}
+          >
+            <Text style={{ fontSize: 30, color: "white" }}>Top Stories</Text>
+          </View>
 
           <ScrollView horizontal={true}>
             {TopNews.map((item) => {
               return (
                 <TouchableOpacity
-                  key={item['title']}
-                  onPress={() => { setNewsUrl(item['url']); setShowPopover(true) }}
+                  key={item["title"]}
+                  onPress={() => {
+                    setNewsUrl(item["url"]);
+                    setShowPopover(true);
+                  }}
                 >
                   <View
                     style={{
-                      width: Dimensions.get("window").width - 120,
-                      borderWidth: 2,
-                      padding: 10,
-                      minHeight: 270,
-                      maxHeight: 300,
+                      
+                      width: Dimensions.get("window").width-60,
+                      borderColor: MainAppColor,
+                      borderBottomWidth: 1,
+                      padding: 20,
                       marginBottom: 10,
-                      borderRadius: 10,
                       marginLeft: 10,
-                      alignItems: "center",
-                      justifyContent: "center",
-
-
-
+                      flexDirection: "row-reverse",
+                      borderTopWidth:1,
                     }}
                   >
                     <Image
@@ -138,14 +150,24 @@ export default function App() {
                         uri: item["img"],
                       }}
                       style={{
-                        width: 200,
+                        width: 70,
 
-                        height: 150,
+                        height: 70,
                         borderRadius: 10,
                       }}
                     />
-                    <View style={{ flex: 1, marginHorizontal: 10, marginTop: 4 }}>
-                      <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item["title"]}</Text>
+                    <View
+                      style={{ flex: 1, marginHorizontal: 10, marginTop: 4 }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: 15,
+                          fontWeight: "bold",
+                          color: "white",
+                        }}
+                      >
+                        {item["title"]}
+                      </Text>
                     </View>
                   </View>
                 </TouchableOpacity>
@@ -153,23 +175,115 @@ export default function App() {
             })}
           </ScrollView>
 
-          <View style={{ backgroundColor: blue, width: "90%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5 }}><Text style={{ fontSize: 35, color: "white" }}>India's News</Text></View>
+          <View
+            style={{
+              borderBottomWidth: 5,
+              borderTopW: 5,
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: 5,
+            }}
+          >
+            <View
+              style={{
+                backgroundColor: MainAppColor,
+                width: "100%",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 10,
+                borderWidth: 2,
+                marginBottom: 5,
+                marginTop: 5,
+              }}
+            >
+              <Text style={{ fontSize: 35, color: "white" }}>
+                Bangalore's News
+              </Text>
+            </View>
+          </View>
+          {BanData.map((item) => {
+            return (
+              <TouchableOpacity
+                key={item["title"]}
+                onPress={() => {
+                  setNewsUrl(item["url"]);
+                  setShowPopover(true);
+                }}
+              >
+                <View
+                  style={{
+                    width: Dimensions.get("window").width,
+                    borderBottomColor: MainAppColor,
+                    borderBottomWidth: 1,
+                    padding: 20,
+                    marginBottom: 10,
+                    marginLeft: 10,
+                    flexDirection: "row-reverse",
+                  }}
+                >
+                  <Image
+                    source={{
+                      uri: item["img"],
+                    }}
+                    style={{
+                      width: 90,
+                      height: 80,
+                      borderRadius: 10,
+                    }}
+                  />
+                  <View style={{ flex: 1, marginHorizontal: 10 }}>
+                    <Text
+                      style={{
+                        fontSize: 15,
+                        fontWeight: "bold",
+                        color: "white",
+                      }}
+                    >
+                      {item["title"]}
+                    </Text>
+                    {/* <Text></Text> */}
+                    <Text style={{ marginTop: 5, color: MainFontColor }}>
+                      {item["date"]}
+                    </Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            );
+          })}
+
+          <View
+            style={{
+              backgroundColor: MainAppColor,
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: 10,
+              borderWidth: 2,
+              marginBottom: 5,
+            }}
+          >
+            <Text style={{ fontSize: 35, color: "white" }}>India's News</Text>
+          </View>
         </View>
         {IndiaData.map((item) => {
           return (
             <TouchableOpacity
-              key={item['title']}
-              onPress={() => { setNewsUrl(item['url']); setShowPopover(true) }}
+              key={item["title"]}
+              onPress={() => {
+                setNewsUrl(item["url"]);
+                setShowPopover(true);
+              }}
             >
               <View
                 style={{
-                  width: Dimensions.get("window").width - 20,
-                  borderWidth: 2,
+                  width: Dimensions.get("window").width,
+                  borderBottomColor: MainAppColor,
+                  borderBottomWidth: 1,
                   padding: 20,
                   marginBottom: 10,
-                  borderRadius: 10,
                   marginLeft: 10,
-                  flexDirection: "row"
+                  flexDirection: "row-reverse",
                 }}
               >
                 <Image
@@ -177,65 +291,21 @@ export default function App() {
                     uri: item["img"],
                   }}
                   style={{
-                    width: 100,
-                    height: 110,
+                    width: 90,
+                    height: 80,
                     borderRadius: 10,
                   }}
                 />
                 <View style={{ flex: 1, marginHorizontal: 10 }}>
-                  <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item["title"]}</Text>
+                  <Text
+                    style={{ fontSize: 15, fontWeight: "bold", color: "white" }}
+                  >
+                    {item["title"]}
+                  </Text>
 
-                  <Text style={{ marginTop: 3 }}>{item["date"]}</Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-          );
-        })}
-
-        <View
-          style={{
-            borderBottomWidth: 5,
-            borderTopW: 5,
-            width: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 5,
-          }}
-        >
-          <View style={{ backgroundColor: blue, width: "100%", alignItems: "center", justifyContent: "center", padding: 10, borderWidth: 2, marginBottom: 5, marginTop: 5 }}><Text style={{ fontSize: 35, color: "white" }}>Bengaluru's News</Text></View>
-
-        </View>
-        {BanData.map((item) => {
-          return (
-            <TouchableOpacity
-              key={item['title']}
-              onPress={() => { setNewsUrl(item['url']); setShowPopover(true) }}
-            >
-              <View
-                style={{
-                  width: Dimensions.get("window").width - 20,
-                  borderWidth: 2,
-                  padding: 20,
-                  marginBottom: 10,
-                  borderRadius: 10,
-                  marginLeft: 10,
-                  flexDirection: "row"
-                }}
-              >
-                <Image
-                  source={{
-                    uri: item["img"],
-                  }}
-                  style={{
-                    width: 100,
-                    height: 110,
-                    borderRadius: 10,
-                  }}
-                />
-                <View style={{ flex: 1, marginHorizontal: 10 }}>
-                  <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item["title"]}</Text>
-                  {/* <Text></Text> */}
-                  <Text style={{ marginTop: 5 }}>{item["date"]}</Text>
+                  <Text style={{ marginTop: 3, color: MainFontColor }}>
+                    {item["date"]}
+                  </Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -243,14 +313,13 @@ export default function App() {
         })}
       </ScrollView>
       <Overlay
-        isVisible={showPopover} onBackdropPress={toggleOverlay}
+        isVisible={showPopover}
+        onBackdropPress={toggleOverlay}
         overlayStyle={{ width: "105%", height: "103%" }}
         animationType="fade"
       >
         <WebView source={{ uri: newsUrl }} />
-
       </Overlay>
-
     </View>
   );
 }

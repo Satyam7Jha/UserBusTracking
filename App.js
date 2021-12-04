@@ -73,7 +73,7 @@ const App = () => {
           onIndexChange={setIndex}
           renderScene={renderScene}
           activeColor="#02abde"
-          barStyle={{ backgroundColor: DarkAppColor }}
+          barStyle={{ backgroundColor: DarkAppColor,borderTopWidth:1,borderTopColor:MainAppColor }}
         />
       </View>
 

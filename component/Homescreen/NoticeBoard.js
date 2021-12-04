@@ -60,7 +60,7 @@ export default function App() {
 
 
         return (
-            <View style={{ height: 420,marginBottom: 50, padding: 5, alignItems: "center", width: "100%", marginHorizontal: 10,borderBottomWidth:5,borderBottomColor:MainAppColor}}>
+            <View style={{ height: 420,marginBottom: 10, padding: 5, alignItems: "center", width: "100%", marginHorizontal: 10,borderBottomWidth:5,borderBottomColor:MainAppColor}}>
                 <View style={{ borderBottomWidth: 2,borderColor:"white" }}>
                     <Text style={{ fontWeight: "bold", fontSize: 25 ,color:"white"}}>NOTICE   BOARD</Text>
                 </View>
