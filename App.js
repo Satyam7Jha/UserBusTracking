@@ -57,7 +57,7 @@ const App = () => {
     info: Information,
     ecommers: ecom
   });
-
+console.log("App")
 
 
   return (

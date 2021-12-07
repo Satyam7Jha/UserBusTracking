@@ -22,6 +22,7 @@ function Test() {
 const Tab = createMaterialTopTabNavigator();
 
 export default function App() {
+  console.log("informatin")
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <NavigationContainer independent={true}>

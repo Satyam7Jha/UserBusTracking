@@ -10,20 +10,20 @@ export default function BusesLoc() {
     // -------------------------------------------------------------------------------------------------------------
     const [Buslocation, setBuslocation] = useState({ latitude: 12.9037432, longitude: 77.5193716 });
     const [isLoding, setIsloding] = useState(null);
-    const API = "https://bustrack-27015-default-rtdb.asia-southeast1.firebasedatabase.app/BusLocation.json";
+    // const API = "https://bustrack-27015-default-rtdb.asia-southeast1.firebasedatabase.app/BusLocation.json";
 
 
-    useEffect(() => {
-        fetch(
-            API
-        )
-            .then((response) => response.json())
-            .then((json) => setBuslocation(json))
-            .catch((error) => console.error(error))
-            .finally(() => setIsloding(false));
-    }, [Buslocation]);
+    // useEffect(() => {
+    //     fetch(
+    //         API
+    //     )
+    //         .then((response) => response.json())
+    //         .then((json) => setBuslocation(json))
+    //         .catch((error) => console.error(error))
+    //         .finally(() => setIsloding(false));
+    // }, []);
 
-    if (isLoding || Buslocation == undefined ) {
+    if (false) {
         return (<View></View>);
     }
 
@@ -39,14 +39,14 @@ export default function BusesLoc() {
                 {
                     BusList.map((item) => {
 
-                        if (isLoding || Buslocation[item]['latitude'] == undefined || Buslocation[item]['longitude'] == undefined) {
+                        if (false) {
                             return (<View key={item} ></View>);
                         }
 
                         else {
                             return (
                                 // <View>{console.log(item)}</View>
-                                <Marker key={item} coordinate={{ latitude: Buslocation[item]['latitude'], longitude: Buslocation[item]['longitude'] }}
+                                <Marker key={item} coordinate={{ latitude: Buslocation['latitude'], longitude: Buslocation['longitude'] }}
                                     title={item} onPress={() => console.log("marker_curr")}
                                     icon={require('../BusLOcation/Bus.png')}
 

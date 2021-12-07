@@ -6,11 +6,12 @@ import {
     ScrollView,
     Dimensions,
     Image,
-    Button,
+
     Linking,
     TouchableOpacity,
 } from "react-native";
-import { DarkAppColor, MainAppColor, MainFontColor } from "../../assets/Color";
+import { blue, DarkAppColor, MainAppColor, MainFontColor } from "../../assets/Color";
+import { Button } from "react-native-paper";
 
 export default function WeekMovi(props) {
 
@@ -21,71 +22,89 @@ export default function WeekMovi(props) {
     return (
         <View style={{
             alignItems: "center", justifyContent: "center", backgroundColor: DarkAppColor, borderBottomWidth: 5,
-            borderBottomColor: MainFontColor,
-            paddingBottom: 10,
+            borderBottomColor: MainFontColor
+
+
+
         }}>
             <ScrollView horizontal={true}>
                 {moviList.map((item) => {
                     return (
                         <View
+
                             key={item}
                             style={{
-                                width: Dimensions.get("window").width,
-
-
-
-                                marginBottom: 10,
-
-
+                                borderWidth:0.5,
+                                flex: 1,
+                                height: "100%",
+                                marginHorizontal: 5,
+                                borderRadius: 10,
+                                borderColor: MainFontColor,
                             }}
                         >
-                            <View style={{ alignItems: "center", padding: 3, flexDirection: "row", paddingLeft: 20, justifyContent: "center" }}>
-                                <Text style={{ fontSize: 20, color: "white", fontWeight: "bold", marginRight: 10 }}>
-                                    {props.MoviData[item]["name"]}
-                                </Text>
 
-                            </View>
                             <Image
                                 style={{
-                                    width: "90%",
+                                    // width: "100%",
                                     height: 180,
                                     borderRadius: 10,
-                                    marginRight: 5,
-                                    marginLeft: 15,
+
                                 }}
                                 source={{ uri: props.MoviData[item]["imgurl"] }}
                             />
 
-                            <View style={{}}>
+                            <View style={{ padding: 5 }}>
+                                <View style={{ width: "100%", flexDirection: "row", alignItems: "center", marginTop: 5 }}>
+                                    <Image style={{ width: 20, height: 20 }} source={require('../../assets/star.png')} />
+                                    <Text style={{ fontSize: 15, color: "white" }}>  {props.MoviData[item]["imdb"]}  </Text>
+                                </View>
+
+
+                                <View style={{ alignItems: "center", padding: 5, flexDirection: "row", }}>
+                                    <Text style={{ fontSize: 12, color: "white", fontWeight: "bold" }}>
+                                        {props.MoviData[item]["name"].length < 20 ? props.MoviData[item]["name"] : props.MoviData[item]["name"].slice(0, 15) + "..."}
+                                    </Text>
+
+                                </View>
+
+
                                 <View
                                     style={{
-                                        flexDirection: "row",
-                                        justifyContent: "space-between",
-                                        marginTop: 10,
-                                        paddingBottom: 5,
+
+
+
+
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        paddingBottom: 5
+
+                                        // backgroundColor: "red"
                                     }}
                                 >
 
-                                    <Text style={{ marginRight: 30, fontSize: 20, color: "white" }}>
-                                        {props.MoviData[item]["director"]}
-                                    </Text>
-                                    <Text style={{ fontSize: 20, color: "white" }}>imdb {props.MoviData[item]["imdb"]}</Text>
 
-
-
+                                    <TouchableOpacity onPress={() =>
+                                        Linking.openURL(props.MoviData[item]["download"])
+                                    }><View style={{ justifyContent: "center", alignItems: "center", borderWidth: 1, borderColor: MainFontColor, width: 120, borderRadius: 2, height: 30, marginTop: 10 }}>
+                                            <Text style={{ fontSize: 15, color: "white", fontWeight: "bold", marginRight: 10, color: blue }}>
+                                                Download
+                                            </Text>
+                                        </View>
+                                    </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity onPress={() =>
+
+
+                                {/* <Button style={{ borderWidth: 2, borderColor: MainFontColor, width: "85%" }} color={blue} raised={true} onPress={() =>
+
                                     Linking.openURL(props.MoviData[item]["download"])
-                                }><View style={{ alignItems: "center" }}>
-                                        <Text style={{ fontSize: 20, color: "white", fontWeight: "bold", marginRight: 10, borderBottomWidth: 1, borderBottomColor: "white" }}>
-                                            Download
-                                        </Text>
-                                    </View>
-                                </TouchableOpacity>
+                                }>
+                                    Download
+
+                                </Button> */}
+
                             </View>
+
+
+
 
                         </View>
 

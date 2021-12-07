@@ -12,6 +12,8 @@ import { DarkAppColor, MainAppColor } from "../assets/Color";
 
 
 export default function App() {
+  console.log("Home")
+
   const [showPopover, setShowPopover] = React.useState(false);
 
   const toggleOverlay = () => {
@@ -19,7 +21,7 @@ export default function App() {
   };
 
   return (
-    <View style={{ backgroundColor: DarkAppColor,marginBottom :50 }}>
+    <View style={{ backgroundColor: DarkAppColor, marginBottom: 50 }}>
       <View
         style={{
           height: 50,
@@ -61,6 +63,7 @@ export default function App() {
         <Header />
         <Weather />
         <Covid19 />
+        <Medical />
         <NoticeBoard />
 
         {/* <View
@@ -73,7 +76,7 @@ export default function App() {
         >
           <Text style={{ color: "white", fontSize: 60 }}>coming soon..</Text>
         </View> */}
-        <Medical />
+
         <ImaageOfDay />
       </ScrollView>
     </View>

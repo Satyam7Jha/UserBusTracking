@@ -14,6 +14,7 @@ import  { MainAppColor,MainFontColor } from "../../assets/Color"
 export default function App() {
     const [isLoading, setLoading] = useState(true);
     const [Notice_data, setNoticeData] = useState([]);
+    console.log("Notice board")
 
     useEffect(() => {
         fetch(
@@ -23,7 +24,7 @@ export default function App() {
             .then((json) => setNoticeData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
-    }, [Notice_data]);
+    }, []);
 
     // console.log(Notice_data)
 
@@ -101,7 +102,7 @@ export default function App() {
                         }
                     </View>
                 </ScrollView>
-                <View><Text style={{ color: "white",fontWeight:"bold",fontSize:17 }}>{'NEXT ->'}</Text></View>
+                <View><Text style={{ color: "white",fontWeight:"bold",fontSize:17 }}>{"Scroll ->"}</Text></View>
 
 
             </View >

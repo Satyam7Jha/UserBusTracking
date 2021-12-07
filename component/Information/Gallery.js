@@ -48,8 +48,8 @@ export default function Gellery() {
                     <InstaImage imageData={GalleryData['InstaImage']} />
                 </View>
 
-                <View style={{ width: "100%", height: 300, marginTop: 20, borderBottomColor: MainAppColor, borderBottomWidth: 6 }}>
-                    <Text style={{ color: "white", fontSize: 20, borderBottomWidth: 3 }}>This Week's Movi</Text>
+                <View style={{ width: "100%", marginTop: 20, borderBottomColor: MainAppColor, borderBottomWidth: 6 }}>
+                    <Text style={{ color: "white", fontSize: 20,marginBottom:5}}>This Week's Movi</Text>
                     <WeekMovi MoviData={GalleryData['WeekMovi']} />
                 </View>
                 <View style={{ backgroundColor: "blue", width: "100%", marginTop: 20 }}>

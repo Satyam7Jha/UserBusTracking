@@ -23,7 +23,7 @@ export default function BuyProduct() {
       .then((json) => setProduct(json))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-  }, [product]);
+  }, []);
 
   if (isLoading) {
     return (
@@ -46,7 +46,7 @@ export default function BuyProduct() {
 
   // console.log(product);
   const productList = Object.keys(product);
-  // console.log(productList);
+  console.log("BuyPro");
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: DarkAppColor }}>

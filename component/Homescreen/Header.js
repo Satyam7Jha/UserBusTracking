@@ -9,6 +9,8 @@ import {
 import Swiper from 'react-native-swiper';
 
 export default function App() {
+    console.log("Header")
+
 
     const [userData] = useState([
 

@@ -21,22 +21,23 @@ export default function App() {
   const [errorMsg, setErrorMsg] = useState(null);
 
 
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
-        return;
-      }
+  // useEffect(() => {
+  //   (async () => {
+  //     let { status } = await Location.requestForegroundPermissionsAsync();
+  //     if (status !== 'granted') {
+  //       setErrorMsg('Permission to access location was denied');
+  //       return;
+  //     }
 
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location.coords);
-    })();
-  }, [location]);
+  //     let location = await Location.getCurrentPositionAsync({});
+  //     setLocation(location.coords);
+  //   })();
+  // });
   // console.log(location)
 
   // console.log(location);
   // -------------------------------------------------------------------------------------------------------------
+  console.log("Map")
 
 
   return (
@@ -48,9 +49,11 @@ export default function App() {
           longitude: 77.5193716,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
+          
+      
         }}>
 
-        <BusesLoc />
+        {/* <BusesLoc /> */}
 
         <Marker coordinate={{ latitude: location.latitude, longitude: location.longitude }}
           title="My current location" onPress={() => console.log("marker_curr")}
@@ -80,7 +83,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-  marginTop:50
+    marginTop: 50
   },
   map: {
     ...StyleSheet.absoluteFillObject,

@@ -13,6 +13,7 @@ import {
 import  { MainFontColor,MainAppColor, DarkAppColor, blue } from "../../assets/Color"
 
 export default function App() {
+    console.log("Medical")
 
     const URL = "https://i.pinimg.com/originals/be/f5/d0/bef5d0e27b11ccc40b0a1793047bc769.png";
 

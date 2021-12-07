@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, SafeAreaView, Button,Linking } from 'react-native';
+import { Text, View, SafeAreaView, Button, Linking } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -32,11 +32,14 @@ function Sell() {
 const Tab = createMaterialTopTabNavigator();
 
 export default function App() {
+    console.log("Ecom")
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <NavigationContainer independent={true} >
                 <Tab.Navigator
                     screenOptions={{
+                        swipeEnabled: false,
+
                         tabBarActiveTintColor: blue,
                         tabBarInactiveTintColor: "white",
                         tabBarLabelStyle: { fontSize: 15, fontWeight: "bold" },
