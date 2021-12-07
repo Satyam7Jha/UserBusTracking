@@ -15,10 +15,10 @@ import { DarkAppColor, MainAppColor, MainFontColor } from "../../assets/Color";
 export default function InstaImage(props) {
 
 
-   
 
-  
-    const imageList = Object.keys(props.imageData);
+
+
+    const imageList = (Object.keys(props.imageData)).reverse();
     // console.log(imageList);
 
     return (
@@ -79,17 +79,20 @@ export default function InstaImage(props) {
                     );
                 })}
             </ScrollView>
-            <View style = {{width:"100%"}}>
-                <Button
-                    color={MainAppColor}
+            <View style={{ width: "100%", alignItems: "center", justifyContent: "center" }}>
+                <Text style={{ fontSize: 15, color: "white" }}>{"Scroll->"}</Text>
+                <View style={{ width: "100%" }}>
+                    <Button
+                        color={MainAppColor}
+                        width="90%"
 
-                    title="Add Yours Image!!"
-                    onPress={() =>
-                        Linking.openURL(
-                            `whatsapp://send?phone=${918521954141}&text=${"Send us pic ,image title, pic by  "}`
-                        )
-                    }
-                /></View>
+                        title="Add Yours Image!!"
+                        onPress={() =>
+                            Linking.openURL(
+                                `whatsapp://send?phone=${918521954141}&text=${"Send us pic ,image title, pic by  "}`
+                            )
+                        }
+                    /></View></View>
         </View>
     );
 }

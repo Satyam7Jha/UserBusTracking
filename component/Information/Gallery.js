@@ -44,7 +44,7 @@ export default function Gellery() {
         <View style={{ backgroundColor: DarkAppColor, flex: 1 }}>
             <ScrollView>
                 {/* <View style={{ alignItems: "center", justifyContent: "center", padding: 8 }}><Text style={{ color: "white", fontWeight: "bold" }}>Showing results for capture the surroundings</Text></View> */}
-                <View style={{ width: "100%", height: 300 }}>
+                <View style={{ width: "100%"}}>
                     <InstaImage imageData={GalleryData['InstaImage']} />
                 </View>
 

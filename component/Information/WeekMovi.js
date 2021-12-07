@@ -34,7 +34,7 @@ export default function WeekMovi(props) {
 
                             key={item}
                             style={{
-                                borderWidth:0.5,
+                                borderWidth: 0.5,
                                 flex: 1,
                                 height: "100%",
                                 marginHorizontal: 5,
@@ -61,8 +61,14 @@ export default function WeekMovi(props) {
 
 
                                 <View style={{ alignItems: "center", padding: 5, flexDirection: "row", }}>
-                                    <Text style={{ fontSize: 12, color: "white", fontWeight: "bold" }}>
+                                    <Text style={{ fontSize: 12, color: "white"}}>
                                         {props.MoviData[item]["name"].length < 20 ? props.MoviData[item]["name"] : props.MoviData[item]["name"].slice(0, 15) + "..."}
+                                    </Text>
+
+                                </View>
+                                <View style={{ alignItems: "center", padding: 5, flexDirection: "row", }}>
+                                    <Text style={{ fontSize: 12, color: MainFontColor, fontWeight: "bold" }}>
+                                        {props.MoviData[item]["director"].length < 20 ? props.MoviData[item]["director"] : props.MoviData[item]["director"].slice(0, 15) + "..."}
                                     </Text>
 
                                 </View>
