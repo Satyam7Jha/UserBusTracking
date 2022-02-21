@@ -20,6 +20,14 @@ import {
   MainFontColor,
 } from "../../assets/Color";
 
+
+import * as WebBrowser from 'expo-web-browser';
+import AutoScroll from "./AutoScroll";
+
+
+
+
+
 export default function App() {
   const [isLoadingTop, setLoadingTop] = useState(true);
   const [TopNews, setTopNews] = useState([]);
@@ -32,6 +40,15 @@ export default function App() {
 
   const [newsUrl, setNewsUrl] = useState("");
   const [showPopover, setShowPopover] = useState(false);
+
+
+
+  const [result, setResult] = useState(null);
+
+  const _handlePressButtonAsync = async (linkUrl) => {
+    let result = await WebBrowser.openBrowserAsync(linkUrl);
+    setResult(result);
+  };
 
   const toggleOverlay = () => {
     setShowPopover(!showPopover);
@@ -107,6 +124,8 @@ export default function App() {
             marginBottom: 5,
           }}
         >
+          <AutoScroll />
+
           <View
             style={{
               backgroundColor: MainAppColor,
@@ -123,26 +142,27 @@ export default function App() {
           </View>
 
           <ScrollView horizontal={true}>
+
             {TopNews.map((item) => {
               return (
                 <TouchableOpacity
                   key={item["title"]}
                   onPress={() => {
+                    _handlePressButtonAsync(item['url'])
                     setNewsUrl(item["url"]);
-                    setShowPopover(true);
                   }}
                 >
                   <View
                     style={{
-                      
-                      width: Dimensions.get("window").width-60,
+
+                      width: Dimensions.get("window").width - 60,
                       borderColor: MainAppColor,
                       borderBottomWidth: 1,
                       padding: 20,
                       marginBottom: 10,
                       marginLeft: 10,
                       flexDirection: "row-reverse",
-                      borderTopWidth:1,
+                      borderTopWidth: 1,
                     }}
                   >
                     <Image
@@ -207,8 +227,9 @@ export default function App() {
               <TouchableOpacity
                 key={item["title"]}
                 onPress={() => {
+                  _handlePressButtonAsync(item['url'])
                   setNewsUrl(item["url"]);
-                  setShowPopover(true);
+
                 }}
               >
                 <View
@@ -271,8 +292,10 @@ export default function App() {
             <TouchableOpacity
               key={item["title"]}
               onPress={() => {
+
+                _handlePressButtonAsync(item['url'])
                 setNewsUrl(item["url"]);
-                setShowPopover(true);
+                // setShowPopover(true);
               }}
             >
               <View
@@ -312,14 +335,7 @@ export default function App() {
           );
         })}
       </ScrollView>
-      <Overlay
-        isVisible={showPopover}
-        onBackdropPress={toggleOverlay}
-        overlayStyle={{ width: "105%", height: "103%" }}
-        animationType="fade"
-      >
-        <WebView source={{ uri: newsUrl }} />
-      </Overlay>
+
     </View>
   );
 }

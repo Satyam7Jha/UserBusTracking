@@ -3,6 +3,7 @@ import * as Location from 'expo-location';
 import { Platform, Text, View, StyleSheet, Image } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import BusesLoc from './BusesLoc';
+import { DarkAppColor } from '../../assets/Color';
 
 
 
@@ -43,7 +44,9 @@ export default function App() {
   return (
 
     <View style={styles.container}>
-      <MapView style={styles.map}
+
+      <Text style={{ color: "white", fontSize: 20 }}>Comming Soon!!</Text>
+      {/* <MapView style={styles.map}
         initialRegion={{
           latitude: 12.9037432,
           longitude: 77.5193716,
@@ -53,7 +56,7 @@ export default function App() {
       
         }}>
 
-        {/* <BusesLoc /> */}
+       
 
         <Marker coordinate={{ latitude: location.latitude, longitude: location.longitude }}
           title="My current location" onPress={() => console.log("marker_curr")}
@@ -73,7 +76,7 @@ export default function App() {
 
         />
 
-      </MapView>
+      </MapView> */}
 
     </View>
   );
@@ -83,7 +86,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    marginTop: 50
+    marginTop: 50,
+    backgroundColor: DarkAppColor,
+    alignItems: "center",
+    justifyContent: "center"
   },
   map: {
     ...StyleSheet.absoluteFillObject,

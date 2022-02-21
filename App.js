@@ -8,6 +8,14 @@ import { blue, DarkAppColor, MainAppColor } from "./assets/Color";
 import { BottomNavigation, Text } from 'react-native-paper';
 
 
+
+
+
+
+
+
+
+
 function HomeScreen() {
   return (
     <Home />
@@ -43,6 +51,47 @@ const MyStatusBar = ({ backgroundColor, ...props }) => (
 
 const App = () => {
 
+
+
+  const [todayCount, setTodayCount] = React.useState(0);
+  const [loding, setLoading] = React.useState(false);
+
+
+
+
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = dd + '_' + mm + '_' + yyyy;
+  const URL = `https://userapp-12ba6-default-rtdb.asia-southeast1.firebasedatabase.app/Static/${today}.json`;
+
+
+  React.useEffect(() => {
+    fetch(URL)
+      .then((response) => response.json())
+      .then((json) => setTodayCount(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(true));
+  }, []);
+
+
+  if (loding) {
+    fetch(
+      URL,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(todayCount + 1),
+      }
+    );
+  }
+
+
+
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: "home", title: "Home", icon: "home" },
@@ -57,7 +106,7 @@ const App = () => {
     info: Information,
     ecommers: ecom
   });
-console.log("App")
+  console.log("App")
 
 
   return (
@@ -73,7 +122,7 @@ console.log("App")
           onIndexChange={setIndex}
           renderScene={renderScene}
           activeColor="#02abde"
-          barStyle={{ backgroundColor: DarkAppColor,borderTopWidth:1,borderTopColor:MainAppColor }}
+          barStyle={{ backgroundColor: DarkAppColor, borderTopWidth: 1, borderTopColor: MainAppColor }}
         />
       </View>
 

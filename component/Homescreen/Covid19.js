@@ -11,6 +11,8 @@ import Card from "../../assets/Card";
 import { MainAppColor, MainFontColor } from "../../assets/Color";
 import { WebView } from "react-native-webview";
 import { Overlay } from "react-native-elements";
+import * as WebBrowser from 'expo-web-browser';
+
 
 export default function Covid19() {
   // console.log("Covid");
@@ -44,6 +46,13 @@ export default function Covid19() {
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
+
+
+
+  const _handlePressButtonAsync = async (linkUrl) => {
+    let result = await WebBrowser.openBrowserAsync(linkUrl);
+    // setResult(result);
+  };
 
   //   console.log(covidNews);
 
@@ -82,62 +91,13 @@ export default function Covid19() {
           </Text>
         </View>
 
-        <View style={{ flex: 1, width: "100%" }}>
-          <Text
-            style={{ fontSize: 25, color: MainFontColor, fontWeight: "bold" }}
-          >
-            {covid["regionData"][15]["region"]}
-          </Text>
-        </View>
-        <View style={{ flexDirection: "row", width: "100%", height: 70 }}>
-          <View
-            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-          >
-            <Text style={{ color: "red" }}>TotalCases</Text>
-            <Text style={{ color: "red" }}>
-              {covid["regionData"][15]["totalInfected"]}
-            </Text>
-          </View>
-          <View
-            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-          >
-            <Text style={{ color: "blue" }}>Active</Text>
-            <Text style={{ color: "blue", fontSize: 11 }}>
-              ({covid["regionData"][15]["newInfected"]})
-            </Text>
-            <Text style={{ color: "blue" }}>
-              {covid["regionData"][15]["activeCases"]}
-            </Text>
-          </View>
-          <View
-            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-          >
-            <Text style={{ color: "green" }}>Recovered</Text>
-            <Text style={{ color: "green", fontSize: 11 }}>
-              ({covid["regionData"][15]["newRecovered"]})
-            </Text>
-            <Text style={{ color: "green" }}>
-              {covid["regionData"][15]["recovered"]}
-            </Text>
-          </View>
-          <View
-            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-          >
-            <Text style={{ color: "grey" }}> Deaths</Text>
-            <Text style={{ color: "grey", fontSize: 11 }}>
-              ({covid["regionData"][15]["newDeceased"]})
-            </Text>
-            <Text style={{ color: "grey" }}>
-              {covid["regionData"][15]["deceased"]}
-            </Text>
-          </View>
-        </View>
+
 
         <Text style={{ color: "black" }}>--------------------------</Text>
 
         <View style={{ flex: 1, width: "100%" }}>
           <Text style={{ fontSize: 25, color: MainFontColor }}>
-            Across India
+            India
           </Text>
         </View>
         <View style={{ flexDirection: "row", width: "100%", height: 70 }}>
@@ -185,8 +145,9 @@ export default function Covid19() {
                   <Card style={{ marginLeft: 5, marginRight: 5 }}>
                     <TouchableOpacity
                       onPress={() => {
-                        setShowPopover(true);
-                        seturl(item["link"]);
+                        // setShowPopover(true);
+                        // seturl(item["link"]);
+                        _handlePressButtonAsync(item['link'])
                       }}
                     >
                       <View style={{ width: "100%" }}>

@@ -12,7 +12,10 @@ export default function App() {
     console.log("Header")
 
 
-    const [userData] = useState([
+
+
+
+    const [userData, setuserData] = useState([
 
 
         {
@@ -39,6 +42,17 @@ export default function App() {
 
     ]);
 
+
+    const URL = "https://userapp-12ba6-default-rtdb.asia-southeast1.firebasedatabase.app/HeaderImage.json"
+
+    React.useEffect(() => {
+        fetch(URL)
+            .then((response) => response.json())
+            .then((json) => setuserData(json))
+            .catch((error) => console.error(error))
+    }, []);
+
+
     return (
         <View style={{ height: 200, marginTop: 5 }}>
             <Swiper loop={true} style={{ height: 350 }} autoplay={true} autoplayTimeout={4}>
@@ -48,7 +62,6 @@ export default function App() {
                             style={{ width: "95%", height: 200, borderRadius: 10, marginRight: 5, marginLeft: 5 }}
                             source={{ uri: user.img }}
                         />
-                        {/* <Text style={{position: 'absolute', fontSize: 20,marginTop:170,color:'white'}}>{user['name']}</Text> */}
                     </View>
                 ))}
             </Swiper>

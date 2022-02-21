@@ -9,6 +9,7 @@ import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { Overlay } from "react-native-elements";
 import NoticeBoard from "../component/Homescreen/NoticeBoard";
 import { DarkAppColor, MainAppColor } from "../assets/Color";
+import Stat from "../component/Homescreen/Stat"
 
 
 export default function App() {
@@ -44,20 +45,29 @@ export default function App() {
             justifyContent: "center",
             alignItems: "center",
             marginRight: "4%",
+            flexDirection: "row"
           }}
         >
           <Text style={{ color: "white", fontWeight: "bold", fontSize: 25 }}>
             College Connect
           </Text>
+          <View style={{ flexDirection: "column-reverse" }}>
+            <Text style={{ color: "red", fontSize: 10 }}>  Beta</Text>
+          </View>
         </View>
       </View>
 
       <Overlay
         isVisible={showPopover}
         onBackdropPress={toggleOverlay}
-        overlayStyle={{ width: "70%", height: "100%", marginLeft: -150 }}
+        overlayStyle={{ width: "80%", height: "60%" }}
         animationType="fade"
-      ></Overlay>
+      >
+
+        <Stat />
+
+
+      </Overlay>
 
       <ScrollView>
         <Header />
