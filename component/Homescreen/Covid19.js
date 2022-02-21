@@ -141,7 +141,7 @@ export default function Covid19() {
             {covidNews.map((item, index) => {
 
               return (
-                <View key={(index).toString()} style={{ width: Dimensions.get('window').width }}>
+                <View key={(index).toString()} style={{ width: Dimensions.get('window').width - 42 }}>
                   <Card style={{ marginLeft: 5, marginRight: 5 }}>
                     <TouchableOpacity
                       onPress={() => {
@@ -151,11 +151,11 @@ export default function Covid19() {
                       }}
                     >
                       <View style={{ width: "100%" }}>
-                        <Text style={{ color: "white" }}>{item["media"]}</Text>
+                        <Text style={{ color: "orange" }}>{item["media"]}</Text>
                       </View>
                       <Text style={{ color: "white" }}>
-                        {item["title"].length > 80
-                          ? item["title"].slice(0, 80) + "..."
+                        {item["title"].length > 70
+                          ? item["title"].slice(0, 70) + "..."
                           : item["title"]}
                       </Text>
                       <View style={{ width: "100%" }}>
