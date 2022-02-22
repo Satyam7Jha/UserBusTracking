@@ -5,6 +5,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 import BuyProduct from '../component/Ecommerce/BuyProduct';
 import { blue, DarkAppColor } from '../assets/Color';
+import SellProduct from '../component/Ecommerce/SellProduct';
 
 
 function Buy() {
@@ -15,15 +16,9 @@ function Buy() {
 
 function Sell() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: DarkAppColor }}>
-            <Text style={{ fontSize: 20, color: "white" }}>Want to Sell</Text>
-            <Text style={{ fontSize: 20, color: "white" }}>Share the details with us</Text>
-            <Button title="Share" onPress={() =>
-                Linking.openURL(
-                    `whatsapp://send?phone=${918521954141}&text=${"HII: ,\n,give us ,product name,expected price,condition,horizontal image.\n"
-                    }`
-                )
-            } />
+        <View style={{ flex: 1 }}>
+            <SellProduct />
+
 
         </View>
     );
