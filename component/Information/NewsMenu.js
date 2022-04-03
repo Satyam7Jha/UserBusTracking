@@ -1,49 +1,60 @@
 import React from "react";
-import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  ScrollView,
+} from "react-native";
+import {
+  MainAppColor,
+  MainFontColor,
+  DarkAppColor,
+  blue,
+} from "../../assets/Color";
 
 export default function NewsMenu(props) {
   return (
     <View style={styles.container}>
-      <IconVews
-        src={require("../../assets/icon.png")}
-        title={"Latest"}
-        setselectedTopic={props.setselectedTopic}
-      />
-      <IconVews
-        src={require("../../assets/boy.png")}
-        title={"India"}
-        setselectedTopic={props.setselectedTopic}
-      />
-      <IconVews
-        src={require("../../assets/boy.png")}
-        title={"Bangalore"}
-        setselectedTopic={props.setselectedTopic}
-      />
-
-      <IconVews
-        src={require("../../assets/boy.png")}
-        title={"Business"}
-        setselectedTopic={props.setselectedTopic}
-      />
-
-      <IconVews
-        src={require("../../assets/icon.png")}
-        title={"World"}
-        setselectedTopic={props.setselectedTopic}
-      />
+      {Object.keys(props.newsIcon).length != 0 && (
+        <ScrollView horizontal={true}>
+          <View style={styles.container}>
+            {Object.keys(props.newsIcon).map((item, index) => {
+              return (
+                <IconVews
+                  title={item}
+                  url={props.newsIcon[item]}
+                  setselectedTopic={props.setselectedTopic}
+                />
+              );
+            })}
+          </View>
+        </ScrollView>
+      )}
     </View>
   );
 }
 
 const IconVews = (props) => {
   return (
-    <View>
+    <View style={{ padding: 5 }}>
       <TouchableOpacity
         onPress={() => props.setselectedTopic(props.title)}
         style={{ alignItems: "center", justifyContent: "center" }}
       >
-        <Image style={{ width: 50, height: 50 }} source={props.src} />
-        <Text>{props.title}</Text>
+        <Image
+          style={{ width: 80, height: 70, borderRadius: 5 }}
+          source={{
+            uri: props.url,
+          }}
+        />
+
+        <Text
+          style={{ color: "white", fontWeight: "bold", fontStyle: "normal" }}
+        >
+          {props.title}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -52,8 +63,9 @@ const IconVews = (props) => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    backgroundColor: "yellow",
+    backgroundColor: DarkAppColor,
     flexDirection: "row",
     justifyContent: "space-around",
+    padding: 2,
   },
 });

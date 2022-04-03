@@ -29,6 +29,10 @@ import NewsInfo from "./NewsInfo";
 export default function Newss() {
   const [selectedTopic, setselectedTopic] = useState("Latest");
   const [newsData, setnewsData] = useState(undefined);
+  const [newsIcon, setnewsIcon] = useState({});
+
+  // console.log(newsIcon,"fuck")
+
 
   useEffect(() => {
     fetch(
@@ -39,12 +43,23 @@ export default function Newss() {
       .catch((error) => console.error(error));
   }, []);
 
+
+  useEffect(() => {
+    fetch(
+      "https://userapp-12ba6-default-rtdb.asia-southeast1.firebasedatabase.app/NewsIcon.json"
+    )
+      .then((response) => response.json())
+      .then((json) => setnewsIcon(json))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <AutoScroll />
       <NewsMenu
         selectedTopic={selectedTopic}
         setselectedTopic={setselectedTopic}
+        newsIcon = {newsIcon}
       />
       <Text style={{ fontSize: 30 }}>{selectedTopic}</Text>
 
