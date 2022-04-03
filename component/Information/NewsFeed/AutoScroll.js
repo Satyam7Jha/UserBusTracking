@@ -1,66 +1,70 @@
-import React, { useState, useEffect } from "react";
-import { Text, View, Image, StyleSheet, ActivityIndicator } from "react-native";
-import AutoScrolling from "react-native-auto-scrolling";
+import React, { useState, useEffect } from 'react'
+import { Text, View, Image, StyleSheet, ActivityIndicator } from 'react-native'
+import AutoScrolling from 'react-native-auto-scrolling'
 
-import { DarkAppColor, MainAppColor, MainFontColor } from "../../assets/Color";
-import { AntDesign } from "@expo/vector-icons";
+import {
+  DarkAppColor,
+  MainAppColor,
+  MainFontColor,
+} from '../../../assets/Color'
+import { AntDesign } from '@expo/vector-icons'
 
 export default function AutoScroll() {
-  const [isLoading, setLoading] = useState(true);
-  const [autoScroll, setAutoscroll] = useState([]);
+  const [isLoading, setLoading] = useState(true)
+  const [autoScroll, setAutoscroll] = useState([])
 
   // console.log(autoScroll)
 
   useEffect(() => {
     fetch(
-      "https://userapp-12ba6-default-rtdb.asia-southeast1.firebasedatabase.app/AUTOSCROLL.json"
+      'https://userapp-12ba6-default-rtdb.asia-southeast1.firebasedatabase.app/AUTOSCROLL.json',
     )
       .then((response) => response.json())
       .then((json) => setAutoscroll(json))
       .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
+      .finally(() => setLoading(false))
+  }, [])
 
   if (isLoading) {
     return (
       <View style={styles.container}>
         <AutoScrolling style={styles.scrolling2} endPadding={50}>
-          <View style={{ flexDirection: "row" }}>
+          <View style={{ flexDirection: 'row' }}>
             <Text style={styles.welcome}>
               Loding Loding Loding Loding Loding Loding Loding
             </Text>
           </View>
         </AutoScrolling>
       </View>
-    );
+    )
   } else {
     return (
       <View style={styles.container}>
         <AutoScrolling style={styles.scrolling2} endPadding={50}>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {autoScroll.map((item) => (
               <View
-                style={{ alignItems: "center" }}
+                style={{ alignItems: 'center' }}
                 key={(
                   Math.floor(Math.random() * 1000000000000000) + 1
                 ).toString()}
               >
                 <View
                   style={{
-                    flexDirection: "row",
-                    alignItems: "center",
+                    flexDirection: 'row',
+                    alignItems: 'center',
                     marginHorizontal: 5,
                   }}
                 >
                   <Text
                     style={{
                       color: MainFontColor,
-                      fontWeight: "bold",
+                      fontWeight: 'bold',
                       fontSize: 15,
                     }}
                   >
-                    {" "}
-                    {item["Symbol"]}{" "}
+                    {' '}
+                    {item['Symbol']}{' '}
                   </Text>
                   <Text></Text>
 
@@ -68,36 +72,36 @@ export default function AutoScroll() {
                     style={{
                       fontSize: 13,
                       color:
-                        (item["Returns"] * 100).toFixed(2) > 0
-                          ? "green"
-                          : "red",
+                        (item['Returns'] * 100).toFixed(2) > 0
+                          ? 'green'
+                          : 'red',
                     }}
                   >
-                    ({(item["Returns"] * 100).toFixed(2)}%){" "}
+                    ({(item['Returns'] * 100).toFixed(2)}%){' '}
                   </Text>
 
-                  <View style={{ flexDirection: "row" }}>
+                  <View style={{ flexDirection: 'row' }}>
                     <AntDesign
                       name={
-                        (item["Returns"] * 100).toFixed(2) > 0
-                          ? "caretup"
-                          : "caretdown"
+                        (item['Returns'] * 100).toFixed(2) > 0
+                          ? 'caretup'
+                          : 'caretdown'
                       }
                       size={20}
                       color={
-                        (item["Returns"] * 100).toFixed(2) > 0 ? "green" : "red"
+                        (item['Returns'] * 100).toFixed(2) > 0 ? 'green' : 'red'
                       }
                     />
                     <Text
                       style={{
                         fontSize: 14,
                         color:
-                          (item["Returns"] * 100).toFixed(2) > 0
-                            ? "green"
-                            : "red",
+                          (item['Returns'] * 100).toFixed(2) > 0
+                            ? 'green'
+                            : 'red',
                       }}
                     >
-                      {item["Close"]}{" "}
+                      {item['Close']}{' '}
                     </Text>
                   </View>
                 </View>
@@ -106,7 +110,7 @@ export default function AutoScroll() {
           </View>
         </AutoScrolling>
       </View>
-    );
+    )
   }
 }
 
@@ -115,13 +119,13 @@ const styles = StyleSheet.create({
 
   scrolling2: {
     backgroundColor: DarkAppColor,
-    width: "110%",
+    width: '110%',
     padding: 5,
   },
   welcome: {
     backgroundColor: DarkAppColor,
-    width: "110%",
+    width: '110%',
 
     color: MainFontColor,
   },
-});
+})
