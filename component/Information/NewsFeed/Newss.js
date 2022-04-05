@@ -69,13 +69,13 @@ export default function Newss() {
         <View>
           <ScrollView>
             <AutoScroll />
-            <Divider />
+            {/* <Divider /> */}
             <NewsMenu
               selectedTopic={selectedTopic}
               setselectedTopic={setselectedTopic}
               newsIcon={newsIcon}
             />
-            <Divider />
+            {/* <Divider /> */}
 
             {newsData != undefined && (
               <NewsInfo
