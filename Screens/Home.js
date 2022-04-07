@@ -69,9 +69,9 @@ export default function App() {
       <ScrollView>
         <Header />
         <Weather />
-        <TimeTable />
-
         <Covid19 />
+
+        <TimeTable />
 
         <Medical />
         <NoticeBoard />

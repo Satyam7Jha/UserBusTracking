@@ -52,7 +52,11 @@ export default function TimeTable() {
       var start = helper1(temp[0])
       var end = helper1(temp[1])
 
-      var currTime = `${d.getHours()}:${d.getMinutes()}`
+      var currTime = `${d.getHours()}:${
+        d.getMinutes().toString().length == 1
+          ? '0' + d.getMinutes()
+          : d.getMinutes()
+      }`
 
       if (checkInterval(start, end, helper1(currTime)) == false) {
         let z = 1
@@ -70,7 +74,7 @@ export default function TimeTable() {
 
   //   console.log(currentPeriod)
   return (
-    <View style={{ height: 200, borderBottomWidth: 1, borderColor: 'grey' }}>
+    <View style={{ height: 190, borderBottomWidth: 1, borderColor: 'grey' }}>
       <Text style={{ textAlign: 'center', fontSize: 35, color: 'white' }}>
         {currentPeriod['day']}
       </Text>

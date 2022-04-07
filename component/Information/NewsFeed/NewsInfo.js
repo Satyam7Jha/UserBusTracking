@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Platform,
+  FlatList,
 } from 'react-native'
 import {
   MainAppColor,
@@ -24,46 +25,53 @@ export default function NewsInfo({ data, selectedTopic }) {
     let result = await WebBrowser.openBrowserAsync(linkUrl)
     setResult(result)
   }
-  return (
-    <View style={styles.newsview}>
-      <ScrollView>
-        <View
-          style={{
-            backgroundColor: DarkAppColor,
-            paddingLeft: 10,
+
+  const renderItem = ({ item }) => {
+    return (
+      <View
+        key={item}
+        style={{
+          marginTop: 10,
+        }}
+      >
+        <TouchableOpacity
+          activeOpacity={0.5}
+          key={item['title']}
+          onPress={() => {
+            _handlePressButtonAsync(item['link'])
           }}
         >
-          <Text
-            style={{
-              color: 'white',
-              fontStyle: 'italic',
-              fontWeight: 'bold',
-              fontSize: 25,
-            }}
-          >
-            {selectedTopic}
-          </Text>
-        </View>
-        {data.map((item, index) => {
-          return (
-            <View
-              key={index}
-              style={{
-                marginTop: 10,
-              }}
-            >
-              <TouchableOpacity
-                key={item['title']}
-                onPress={() => {
-                  _handlePressButtonAsync(item['link'])
-                }}
-              >
-                <Card item={item} />
-              </TouchableOpacity>
-            </View>
-          )
-        })}
-      </ScrollView>
+          <Card item={item} />
+        </TouchableOpacity>
+      </View>
+    )
+  }
+
+  return (
+    <View style={styles.newsview}>
+      <View
+        style={{
+          backgroundColor: DarkAppColor,
+          paddingLeft: 10,
+        }}
+      >
+        <Text
+          style={{
+            color: 'white',
+            fontStyle: 'italic',
+            fontWeight: 'bold',
+            fontSize: 25,
+            textAlign: 'center',
+          }}
+        >
+          {selectedTopic}
+        </Text>
+      </View>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index}
+      />
     </View>
   )
 }
@@ -98,12 +106,17 @@ const styles = StyleSheet.create({
   cardkeandar: {
     flexDirection: 'row-reverse',
     justifyContent: 'center',
-    backgroundColor: MainAppColor,
+    backgroundColor: 'rgb(35, 45, 55)',
     borderRadius: Platform.OS === 'ios' ? 16 : 7,
     padding: 14,
     marginLeft: 10,
     marginRight: 10,
     marginTop: 5,
+    shadowColor: 'black',
+    shadowOpacity: { width: 100, height: 100 },
+    shadowRadius: 6,
+    shadowOpacity: 126,
+    elevation: 10,
   },
   sideimage: {
     width: 90,
@@ -124,7 +137,7 @@ const styles = StyleSheet.create({
   newsmedia: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: MainFontColor,
+    color: 'orange',
     marginLeft: 20,
   },
 })
