@@ -8,7 +8,6 @@ import {
   TextInput,
   Alert,
   Dimensions,
-  Picker,
   ToastAndroid,
 } from 'react-native'
 import { Overlay } from 'react-native-elements'
@@ -16,6 +15,8 @@ import Animation from '../assets/Animation'
 import { blue, DarkAppColor } from '../assets/Color'
 import EmailVarification from './EmailVarification'
 import UsnList from './UsnLIst'
+import { Picker } from '@react-native-picker/picker'
+
 export default function LoginSignup(props) {
   const [usnModal, setusnModal] = useState(false)
   const [userData, setUserData] = useState(undefined)
@@ -110,6 +111,7 @@ export default function LoginSignup(props) {
                     width: Dimensions.get('window').width - 50,
                     color: 'white',
                   }}
+                  dropdownIconColor={'white'}
                   onValueChange={(itemValue, itemIndex) => setEmail(itemValue)}
                 >
                   {userData['Email'].map((item, index) => (
@@ -157,6 +159,7 @@ export default function LoginSignup(props) {
                     width: 130,
                     color: 'white',
                   }}
+                  dropdownIconColor={'white'}
                   onValueChange={(itemValue, itemIndex) => setSec(itemValue)}
                 >
                   {['A', 'B', 'C'].map((item, index) => (

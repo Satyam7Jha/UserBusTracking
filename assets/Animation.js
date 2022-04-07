@@ -20,7 +20,7 @@ export default function Animation(props) {
     <View style={styles.animationContainer}>
       <LottieView
         ref={animation}
-        style={styles.lottieStyle}
+        // style={styles.lottieStyle}
         source={require('./WelcomIcon.json')}
       />
     </View>
@@ -33,7 +33,5 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
-  lottieStyle: {
-    borderRadius: 500,
-  },
+  lottieStyle: {},
 })

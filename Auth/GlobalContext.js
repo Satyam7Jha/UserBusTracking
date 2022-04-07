@@ -5,7 +5,7 @@ const GlobalData = (props) => {
   // ----------------------------------------------------------------------------------------------------
 
   // Variables for UserData.
-  const [status, setStatus] = useState(false)
+  const [status, setStatus] = useState(true)
   const [ttoken, setttoken] = useState('NOt update')
 
   // ----------------------------------------------------------------------------------------------------

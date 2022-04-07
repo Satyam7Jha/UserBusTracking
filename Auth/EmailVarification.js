@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import {
   View,
   Text,
@@ -7,8 +7,18 @@ import {
   ToastAndroid,
 } from 'react-native'
 import { DarkAppColor, blue } from '../assets/Color'
+import { GlobalContext } from './GlobalContext'
 
 export default function EmailVarification(props) {
+  console.log(props.userData)
+
+  const { status, setStatus } = useContext(GlobalContext)
+  const [inputOtp, setInputOtp] = useState('')
+
+  const varifyOtp = () => {
+    setStatus(true)
+    ToastAndroid.show('Email Varified', ToastAndroid.SHORT)
+  }
   return (
     <View
       style={{ flex: 1, backgroundColor: DarkAppColor, alignItems: 'center' }}
@@ -35,47 +45,61 @@ export default function EmailVarification(props) {
         }}
       >
         <View>
-          <TextInput
-            style={{
-              borderWidth: 2,
-              width: 200,
-              borderColor: 'white',
-              borderRadius: 5,
-              padding: 5,
-              color: 'white',
-            }}
-            keyboardType="number-pad"
-            placeholderTextColor="grey"
-            placeholder="Enter 4 digit OTP"
-            maxLength={4}
-            fontSize={15}
-            // onChangeText={(EnteredValue) => this.ShowMaxAlert(EnteredValue)}
-            textAlign={'center'}
-          />
-          <TouchableOpacity
-            onPress={() => {
-              props.varifyEmail()
-              ToastAndroid.show(
-                'Request sent successfully!',
-                ToastAndroid.SHORT,
-              )
-            }}
-          >
-            <Text
+          <View>
+            <TextInput
               style={{
-                textAlign: 'right',
-                color: blue,
-                marginTop: 2,
-                fontSize: 16,
+                borderWidth: 2,
+                width: 200,
+                borderColor: 'white',
+                borderRadius: 5,
+                padding: 5,
+                color: 'white',
+              }}
+              keyboardType="number-pad"
+              placeholderTextColor="grey"
+              placeholder="Enter 4 digit OTP"
+              maxLength={4}
+              fontSize={15}
+              onChangeText={(EnteredValue) => setInputOtp(EnteredValue)}
+              textAlign={'center'}
+            />
+            <TouchableOpacity
+              onPress={() => {
+                props.varifyEmail()
+                ToastAndroid.show(
+                  'Request sent successfully!',
+                  ToastAndroid.SHORT,
+                )
               }}
             >
-              resend OTP
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={{
+                  textAlign: 'right',
+                  color: blue,
+                  marginTop: 2,
+                  fontSize: 16,
+                }}
+              >
+                resend OTP
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
-        <View style={{ justifyContent: 'center' }}>
-          <TouchableOpacity>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <View>
+            <Text
+              style={{
+                textAlign: 'center',
+                color: 'red',
+                marginTop: 20,
+                marginBottom: 10,
+              }}
+            >
+              Check your spam folder if you don't recieve the OTP !!
+            </Text>
+          </View>
+          <TouchableOpacity onPress={() => varifyOtp()}>
             <View
               style={{
                 backgroundColor: blue,
@@ -84,7 +108,7 @@ export default function EmailVarification(props) {
                 borderRadius: 10,
                 justifyContent: 'center',
                 alignItems: 'center',
-                marginBottom: 50,
+                marginBottom: 40,
               }}
             >
               <Text
