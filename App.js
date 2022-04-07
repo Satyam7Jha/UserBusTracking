@@ -6,7 +6,7 @@ import Home from "./Screens/Home"
 import Ecom from "./Screens/Ecom"
 import { blue, DarkAppColor, MainAppColor } from "./assets/Color";
 import { BottomNavigation, Text } from 'react-native-paper';
-import * as firebase from './Firebase';
+//import * as Firebase from './Firebase';
 
 
 
