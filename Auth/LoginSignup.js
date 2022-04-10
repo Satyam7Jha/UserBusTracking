@@ -9,13 +9,14 @@ import {
   Alert,
   Dimensions,
   ToastAndroid,
+  Picker,
 } from 'react-native'
 import { Overlay } from 'react-native-elements'
 import Animation from '../assets/Animation'
 import { blue, DarkAppColor } from '../assets/Color'
 import EmailVarification from './EmailVarification'
 import UsnList from './UsnLIst'
-import { Picker } from '@react-native-picker/picker'
+// import { Picker } from '@react-native-picker/picker'
 
 export default function LoginSignup(props) {
   const [usnModal, setusnModal] = useState(false)
@@ -194,7 +195,11 @@ export default function LoginSignup(props) {
                   alignItems: 'center',
                 }}
               >
-                <Text style={{ fontWeight: 'bold' }}>Verify email</Text>
+                <Text
+                  style={{ fontWeight: 'bold', color: 'black', fontSize: 18 }}
+                >
+                  Verify email
+                </Text>
               </View>
             </TouchableOpacity>
           </View>

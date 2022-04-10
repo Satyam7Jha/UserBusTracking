@@ -22,7 +22,7 @@ export default function UsnList(props) {
 
   var newdata = []
 
-  const [searchQuery, setSearchQuery] = React.useState('')
+  const [searchQuery, setSearchQuery] = React.useState('1RN19')
   const [usnlist, setUsnlist] = React.useState({})
   const [search, setSearch] = React.useState('')
 
@@ -83,7 +83,7 @@ export default function UsnList(props) {
           <Searchbar
             placeholder="Search USN"
             onChangeText={(query) => setSearchQuery(query)}
-            value={searchQuery}
+            // value={}
           />
 
           {/* <View

@@ -15,12 +15,17 @@ import { BottomNavigation, Text } from 'react-native-paper'
 import { GlobalContext } from './Auth/GlobalContext'
 import LoginSignup from './Auth/LoginSignup'
 
+import Profile from './Screens/Profile'
 function HomeScreen() {
   return <Home />
 }
 
 function BusLocation() {
   return <BusLoc />
+}
+
+function ProfileInfo() {
+  return <Profile />
 }
 
 function Information() {
@@ -73,14 +78,14 @@ const App = () => {
   const [index, setIndex] = React.useState(0)
   const [routes] = React.useState([
     { key: 'home', title: 'Home', icon: 'home' },
-    { key: 'bus', title: 'Tracking', icon: 'bus' },
-    { key: 'info', title: 'info', icon: 'information' },
+    { key: 'info', title: 'info', icon: 'kodi' },
     { key: 'ecommers', title: 'E-com', icon: 'shopping' },
+    { key: 'profile', title: 'Profile', icon: 'account-circle' },
   ])
 
   const renderScene = BottomNavigation.SceneMap({
     home: HomeScreen,
-    bus: BusLocation,
+    profile: ProfileInfo,
     info: Information,
     ecommers: ecom,
   })

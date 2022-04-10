@@ -13,7 +13,6 @@ import {
 import { LinearGradient } from 'expo-linear-gradient'
 import { Icon } from 'react-native-elements'
 import { DarkAppColor, MainAppColor } from '../assets/Color'
-import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js'
 import { AccountContext } from './Accounts'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { GlobalContext } from '../Auth/GlobalContext'

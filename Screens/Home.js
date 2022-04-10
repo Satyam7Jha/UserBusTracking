@@ -71,10 +71,10 @@ export default function App() {
         <Weather />
         <Covid19 />
 
-        <TimeTable />
+        {/* <TimeTable /> */}
 
-        <Medical />
         <NoticeBoard />
+        <Medical />
 
         {/* <View
           style={{

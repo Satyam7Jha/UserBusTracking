@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import { Overlay } from 'react-native-elements'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 export default function TimeTable() {
   const [timeTable, setTimeTable] = React.useState(undefined)
   const [isVisible, setIsVisible] = React.useState(false)
+
   var currentPeriod = { sub: '', time: '', day: '' }
 
   useEffect(() => {
@@ -41,11 +42,26 @@ export default function TimeTable() {
 
   var dayData = {}
 
+  const time = [
+    '8:40-9:40',
+    '9:40-10:40',
+    '10:40-11:00',
+    '11:00-12:00',
+    '12:00-13:00',
+    '13:00-13:40',
+    '13:40-14:40',
+    '14:40-15:40',
+    '15:40-16:40',
+  ]
+
+  console.log(timeTable)
+
   if (timeTable !== undefined) {
     const d = new Date()
     var day = dayMap[d.getDay()]
 
     dayData = timeTable[day]
+    console.log(Object.keys(dayData).sort())
 
     for (var a in Object.keys(dayData)) {
       var temp = Object.keys(dayData)[a].split('-')
@@ -75,15 +91,47 @@ export default function TimeTable() {
   //   console.log(currentPeriod)
   return (
     <View style={{ height: 190, borderBottomWidth: 1, borderColor: 'grey' }}>
+      <Text style={{ color: 'white' }}>Time Table</Text>
       <Text style={{ textAlign: 'center', fontSize: 35, color: 'white' }}>
         {currentPeriod['day']}
       </Text>
-      <Text style={{ fontSize: 18, textAlign: 'center', color: 'white' }}>
+
+      {/* <Text style={{ fontSize: 18, textAlign: 'center', color: 'white' }}>
         {currentPeriod['time']}
       </Text>
       <Text style={{ fontSize: 30, textAlign: 'center', color: 'white' }}>
         {currentPeriod['sub']}
-      </Text>
+      </Text> */}
+
+      {timeTable !== undefined && (
+        <ScrollView horizontal={true}>
+          <View
+            style={{
+              height: 100,
+              flexDirection: 'row',
+            }}
+          >
+            {time.map((item, index) => {
+              return (
+                <View
+                  style={{
+                    width: 100,
+                    margin: 5,
+                  }}
+                >
+                  <Text style={{ textAlign: 'center', color: 'white' }}>
+                    {item}
+                  </Text>
+                  <Text style={{ textAlign: 'center' }}>
+                    {timeTable[currentPeriod['day']][item]}
+                  </Text>
+                </View>
+              )
+            })}
+          </View>
+        </ScrollView>
+      )}
+
       <View
         style={{
           marginTop: 20,
