@@ -124,7 +124,7 @@ const StudentInfo = (props) => {
   // const img = `../../assets/${
   //   props.name.Gender == "MALE" ? "profile" : "avatar"
   // }.png`;
-  let img = "../../assets/profile.png";
+  let img = "../../assets/account.png";
   // console.log(img, img == img1, img1);
   return (
     <View

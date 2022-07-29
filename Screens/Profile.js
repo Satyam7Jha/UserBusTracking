@@ -148,7 +148,7 @@ const StudentInfo = () => {
               borderRadius: 100,
               backgroundColor: "grey",
             }}
-            source={require("../assets/profile.png")}
+            source={require("../assets/account.png")}
           ></Image>
         </View>
 
