@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   View,
   Text,
@@ -10,52 +10,52 @@ import {
   Dimensions,
   FlatList,
   Picker,
-} from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
-import { ActivityIndicator, Searchbar } from 'react-native-paper'
-import Card from '../../assets/Card'
-import { blue, DarkAppColor } from '../../assets/Color'
+} from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import { ActivityIndicator, Searchbar } from "react-native-paper";
+import Card from "../../assets/Card";
+import { blue, DarkAppColor } from "../../assets/Color";
 export default function SearchStudents(props) {
   const ckeckSlice = (string, string1, subString) => {
-    console.log(string, string1, subString, 'string')
+    // console.log(string, string1, subString, "string");
     return (
       subString == string.slice(0, subString.length) ||
       subString == string1.slice(0, subString.length)
-    )
-  }
+    );
+  };
 
-  var newdata = []
+  var newdata = [];
 
-  const [searchQuery, setSearchQuery] = React.useState('')
-  const [usnlist, setUsnlist] = React.useState({})
-  const [search, setSearch] = React.useState('')
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [usnlist, setUsnlist] = React.useState({});
+  const [search, setSearch] = React.useState("");
 
-  if (usnlist['body'] != undefined) {
-    newdata = Object.keys(usnlist['body']).filter((item) =>
+  if (usnlist["body"] != undefined) {
+    newdata = Object.keys(usnlist["body"]).filter((item) =>
       ckeckSlice(
         item,
-        usnlist['body'][item]['Name'].toUpperCase(),
-        searchQuery.toUpperCase(),
-      ),
-    )
-    var totalNoStudents = Object.keys(usnlist['body']).length
+        usnlist["body"][item]["Name"].toUpperCase(),
+        searchQuery.toUpperCase()
+      )
+    );
+    var totalNoStudents = Object.keys(usnlist["body"]).length;
   }
 
-  newdata.sort()
+  newdata.sort();
 
   React.useEffect(() => {
-    fetch('https://qbeos57y7j.execute-api.us-east-1.amazonaws.com/v1/usnlist/')
+    fetch("https://qbeos57y7j.execute-api.us-east-1.amazonaws.com/v1/usnlist/")
       .then((response) => response.json())
-      .then((json) => setUsnlist(json))
-  }, [])
+      .then((json) => setUsnlist(json));
+  }, []);
 
   const renderItem = ({ item }) => {
-    return <StudentInfo usn={item} name={usnlist['body'][item]} />
-  }
+    return <StudentInfo usn={item} name={usnlist["body"][item]} />;
+  };
 
   return (
     <View>
-      {usnlist['body'] == undefined && (
+      {usnlist["body"] == undefined && (
         <View style={{ padding: 10 }}>
           <Searchbar
             placeholder="Search USN"
@@ -63,15 +63,15 @@ export default function SearchStudents(props) {
           />
 
           <ActivityIndicator
-            size={'large'}
+            size={"large"}
             color={blue}
             style={{ marginTop: 300 }}
           />
           <Text
             style={{
-              textAlign: 'center',
+              textAlign: "center",
               fontSize: 25,
-              fontWeight: '700',
+              fontWeight: "700",
               color: blue,
             }}
           >
@@ -81,11 +81,11 @@ export default function SearchStudents(props) {
         </View>
       )}
 
-      {usnlist['body'] !== undefined && (
+      {usnlist["body"] !== undefined && (
         <View
           style={{
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignItems: "center",
+            justifyContent: "center",
             padding: 20,
             marginBottom: 50,
           }}
@@ -105,12 +105,12 @@ export default function SearchStudents(props) {
         </View>
       )}
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: "#f9c2ff",
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -118,57 +118,63 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
   },
-})
+});
 
 const StudentInfo = (props) => {
+  // const img = `../../assets/${
+  //   props.name.Gender == "MALE" ? "profile" : "avatar"
+  // }.png`;
+  let img = "../../assets/profile.png";
+  // console.log(img, img == img1, img1);
   return (
     <View
       style={{
-        width: '100%',
+        width: "100%",
         height: 100,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
         marginBottom: 10,
       }}
     >
       <Card
         style={{
-          maxWidth: '100%',
-          backgroundColor: 'black',
+          maxWidth: "100%",
+          backgroundColor: "black",
           padding: 20,
-          minWidth: '95%',
-          flexDirection: 'row',
-          height: '100%',
+          minWidth: "95%",
+          flexDirection: "row",
+          height: "100%",
         }}
       >
         <View>
-          <View
+          <Image
             style={{
               width: 60,
               height: 60,
               borderRadius: 100,
-              backgroundColor: 'grey',
+              backgroundColor: "grey",
             }}
-          ></View>
+            source={require(img)}
+          ></Image>
         </View>
 
         <View
           style={{
-            width: '100%',
-            height: '100%',
+            width: "100%",
+            height: "100%",
             marginLeft: 20,
-            justifyContent: 'center',
+            justifyContent: "center",
           }}
         >
-          <Text style={{ fontWeight: 'bold', color: 'white' }}>
+          <Text style={{ fontWeight: "bold", color: "white" }}>
             {props.usn}
           </Text>
 
-          <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 17 }}>
+          <Text style={{ fontWeight: "bold", color: "white", fontSize: 17 }}>
             {props.name.Name}
           </Text>
         </View>
       </Card>
     </View>
-  )
-}
+  );
+};
