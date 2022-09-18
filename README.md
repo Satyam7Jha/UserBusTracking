@@ -1,4 +1,5 @@
 ## College-Connect
+Figma Design: https://www.figma.com/file/0aVAgWijSO69eLxhaeO8mh/College-Connect?node-id=0%3A1
 ![alt text](https://github.com/Satyam7Jha/College-Connect/blob/development/image/img1.jpeg "entry screen 1")
 ![alt text](https://github.com/Satyam7Jha/College-Connect/blob/development/image/WhatsApp%20Image%202022-07-30%20at%203.26.15%20AM.jpeg "Select USN")
 
